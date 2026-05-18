@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MySpeakora — Materi</title>
+  <title>MySpeakora — Kamus</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="./css/style.css"/>
   <style>
-    /* Extra top padding so content clears the fixed navbar */
-    #materi { padding-top: 110px; min-height: 100vh; }
+    #kamus { padding-top: 110px; min-height: 100vh; }
   </style>
 </head>
 <body>
  
 <!-- ═══════ NAVBAR ═══════ -->
 <nav id="navbar">
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index.php">
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">🏠 Home</a></li>
-    <li><a href="materi.html" class="active">📚 Materi</a></li>
-    <li><a href="kuis.html">🧠 Kuis</a></li>
-    <li><a href="kamus.html">📖 Kamus</a></li>
+    <li><a href="index.php">🏠 Home</a></li>
+    <li><a href="materi.php">📚 Materi</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
+    <li><a href="kamus.php" class="active">📖 Kamus</a></li>
   </ul>
   <div class="nav-auth">
     <a class="btn-login"    onclick="openModal('login')">Login</a>
@@ -34,48 +33,63 @@
   </div>
 </nav>
  
-<!-- ═══════ MATERI ═══════ -->
-<section id="materi">
-  <div class="section-tag">📚 Materi Lengkap</div>
-  <h2 class="section-title">Semua yang Kamu Butuhkan<br>Ada di Sini</h2>
-  <p class="section-sub">Dari level pemula hingga mahir, materi kami dirancang oleh ahli bahasa Inggris berpengalaman.</p>
+<!-- ═══════ KAMUS ═══════ -->
+<section id="kamus">
+  <div class="section-tag">📖 Kamus Digital</div>
+  <h2 class="section-title">Kamus Inggris-Indonesia<br>Terlengkap</h2>
+  <p class="section-sub">Cari arti kata dengan cepat, lengkap dengan contoh kalimat, sinonim, dan pelafalan.</p>
  
-  <div class="materi-grid">
-    <div class="materi-card" onclick="this.style.borderColor='var(--blue-400)'">
-      <div class="materi-icon" style="background:#eff6ff">🔤</div>
-      <h3>Vocabulary</h3>
-      <p>Pelajari ribuan kosakata bahasa Inggris dengan contoh kalimat dan latihan interaktif.</p>
-      <span class="materi-badge">1.200+ Kata</span>
+  <div class="kamus-box">
+    <div class="kamus-search">
+      <input
+        type="text"
+        id="kamusInput"
+        placeholder="Ketik kata dalam bahasa Inggris..."
+        onkeyup="searchKamus()"
+      />
+      <button onclick="searchKamus()">🔍 Cari</button>
     </div>
-    <div class="materi-card">
-      <div class="materi-icon" style="background:#f0fdf4">📝</div>
-      <h3>Grammar</h3>
-      <p>Kuasai tata bahasa mulai dari tenses, preposisi, hingga kalimat kompleks dengan penjelasan mudah.</p>
-      <span class="materi-badge">80 Topik</span>
-    </div>
-    <div class="materi-card">
-      <div class="materi-icon" style="background:#fff7ed">🎤</div>
-      <h3>Speaking</h3>
-      <p>Latih kemampuan berbicara dengan simulasi percakapan nyata dan feedback langsung.</p>
-      <span class="materi-badge">200+ Dialog</span>
-    </div>
-    <div class="materi-card">
-      <div class="materi-icon" style="background:#fdf2f8">👂</div>
-      <h3>Listening</h3>
-      <p>Asah kemampuan mendengar dengan audio native speaker dari berbagai aksen dunia.</p>
-      <span class="materi-badge">150 Audio</span>
-    </div>
-    <div class="materi-card">
-      <div class="materi-icon" style="background:#f0fdfa">✍️</div>
-      <h3>Writing</h3>
-      <p>Belajar menulis email, esai, dan surat resmi dengan template dan panduan lengkap.</p>
-      <span class="materi-badge">60 Template</span>
-    </div>
-    <div class="materi-card">
-      <div class="materi-icon" style="background:#fafaf0">📖</div>
-      <h3>Reading</h3>
-      <p>Latihan membaca teks dari berbagai topik: berita, fiksi, sains, dan budaya populer.</p>
-      <span class="materi-badge">300+ Artikel</span>
+    <div class="kamus-results" id="kamusResults">
+      <div class="kamus-item">
+        <div>
+          <div class="k-word">Beautiful</div>
+          <div class="k-phonetic">/ˈbjuː.tɪ.fəl/</div>
+          <div class="k-meaning">Indah; cantik; memiliki kecantikan yang luar biasa</div>
+        </div>
+        <span class="k-type">Adjective</span>
+      </div>
+      <div class="kamus-item">
+        <div>
+          <div class="k-word">Knowledge</div>
+          <div class="k-phonetic">/ˈnɒl.ɪdʒ/</div>
+          <div class="k-meaning">Pengetahuan; pemahaman tentang suatu hal</div>
+        </div>
+        <span class="k-type">Noun</span>
+      </div>
+      <div class="kamus-item">
+        <div>
+          <div class="k-word">Determine</div>
+          <div class="k-phonetic">/dɪˈtɜː.mɪn/</div>
+          <div class="k-meaning">Menentukan; memutuskan dengan tegas</div>
+        </div>
+        <span class="k-type">Verb</span>
+      </div>
+      <div class="kamus-item">
+        <div>
+          <div class="k-word">Ambitious</div>
+          <div class="k-phonetic">/æmˈbɪʃ.əs/</div>
+          <div class="k-meaning">Ambisius; memiliki keinginan kuat untuk sukses</div>
+        </div>
+        <span class="k-type">Adjective</span>
+      </div>
+      <div class="kamus-item">
+        <div>
+          <div class="k-word">Eloquent</div>
+          <div class="k-phonetic">/ˈel.ə.kwənt/</div>
+          <div class="k-meaning">Fasih; mampu berbicara dengan jelas dan persuasif</div>
+        </div>
+        <span class="k-type">Adjective</span>
+      </div>
     </div>
   </div>
 </section>

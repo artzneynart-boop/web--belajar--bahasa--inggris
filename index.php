@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MySpeakora — Kuis</title>
+  <title>MySpeakora — Beranda</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <style>
-    #kuis { padding-top: 110px; min-height: 100vh; }
-  </style>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
  
 <!-- ═══════ NAVBAR ═══════ -->
 <nav id="navbar">
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index.php">
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">🏠 Home</a></li>
-    <li><a href="materi.html">📚 Materi</a></li>
-    <li><a href="kuis.html" class="active">🧠 Kuis</a></li>
-    <li><a href="kamus.html">📖 Kamus</a></li>
+    <li><a href="index.php"   class="active">🏠 Home</a></li>
+    <li><a href="materi.php">📚 Materi</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
+    <li><a href="kamus.php">📖 Kamus</a></li>
   </ul>
   <div class="nav-auth">
     <a class="btn-login"    onclick="openModal('login')">Login</a>
@@ -33,57 +30,50 @@
   </div>
 </nav>
  
-<!-- ═══════ KUIS ═══════ -->
-<section id="kuis">
-  <div class="section-tag">🧠 Uji Kemampuan</div>
-  <h2 class="section-title">Kuis Interaktif yang Seru</h2>
-  <p class="section-sub">Tes pemahamanmu dengan kuis yang mengadaptasi tingkat kesulitan sesuai kemampuanmu.</p>
- 
-  <div class="kuis-container">
-    <div class="kuis-preview">
-      <h3>Contoh Soal Kuis</h3>
-      <p>Pilih jawaban yang benar untuk melengkapi kalimat berikut:</p>
-      <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:16px;margin-bottom:18px;font-weight:600;font-size:.9rem;">
-        "She ___ to the market every Sunday with her family."
-      </div>
-      <div class="kuis-options">
-        <div class="kuis-opt" onclick="selectOpt(this,'wrong')"><span class="kuis-opt-letter">A</span> go</div>
-        <div class="kuis-opt correct" onclick="selectOpt(this,'correct')"><span class="kuis-opt-letter">B</span> goes ✓</div>
-        <div class="kuis-opt" onclick="selectOpt(this,'wrong')"><span class="kuis-opt-letter">C</span> going</div>
-        <div class="kuis-opt" onclick="selectOpt(this,'wrong')"><span class="kuis-opt-letter">D</span> gone</div>
-      </div>
-      <button class="btn-primary" style="width:100%;justify-content:center" onclick="openModal('register')">Mulai Kuis Lengkap 🎯</button>
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span>Platform Belajar #1 Indonesia</div>
+    <h1>Kuasai Bahasa Inggris dengan <em>Cara Mudah & Menyenangkan</em></h1>
+    <p class="hero-sub">Belajar vocabulary, grammar, speaking, dan listening dengan metode interaktif yang terbukti efektif. Mulai gratis, tanpa batas waktu!</p>
+    <div class="hero-cta">
+      <a href="materi.html" class="btn-primary">🚀 Mulai Belajar Gratis</a>
+      <a href="kuis.html"   class="btn-secondary">🎯 Coba Kuis</a>
     </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Pelajar Aktif</div></div>
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Materi Pelajaran</div></div>
+      <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Tingkat Kepuasan</div></div>
+    </div>
+  </div>
  
-    <div class="kuis-info">
-      <div class="kuis-stat-card">
-        <div class="kuis-stat-icon">🏆</div>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="lesson-header">
+        <div class="lesson-icon">📖</div>
         <div>
-          <div class="kuis-stat-num">25+</div>
-          <div class="kuis-stat-label">Kategori Kuis Tersedia</div>
+          <h4>Word of the Day</h4>
+          <p>Vocabulary Builder</p>
         </div>
       </div>
-      <div class="kuis-stat-card">
-        <div class="kuis-stat-icon">📊</div>
-        <div>
-          <div class="kuis-stat-num">Adaptif</div>
-          <div class="kuis-stat-label">Tingkat kesulitan menyesuaikan kemampuanmu</div>
-        </div>
+      <div class="word-of-day">
+        <div class="wod-label">✨ Today's Word</div>
+        <div class="wod-word">Perseverance</div>
+        <div class="wod-phonetic">/ˌpɜːr.sɪˈvɪr.əns/</div>
+        <div class="wod-meaning">🇮🇩 Ketekunan; kemampuan untuk terus berusaha meskipun ada kesulitan.</div>
       </div>
-      <div class="kuis-stat-card">
-        <div class="kuis-stat-icon">🎖️</div>
-        <div>
-          <div class="kuis-stat-num">Leaderboard</div>
-          <div class="kuis-stat-label">Bersaing dengan ribuan pelajar lain</div>
-        </div>
+      <div class="progress-section">
+        <label><span>Progress Hari Ini</span><span>68%</span></label>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
       </div>
-      <div class="kuis-stat-card">
-        <div class="kuis-stat-icon">📱</div>
-        <div>
-          <div class="kuis-stat-num">Offline</div>
-          <div class="kuis-stat-label">Bisa dikerjakan tanpa koneksi internet</div>
-        </div>
-      </div>
+    </div>
+    <div class="floating-card fc-1">
+      <div class="fc-icon" style="background:var(--blue-50)">🔥</div>
+      7 Day Streak!
+    </div>
+    <div class="floating-card fc-2">
+      <div class="fc-icon" style="background:var(--blue-50)">⭐</div>
+      +150 XP Earned
     </div>
   </div>
 </section>
@@ -153,3 +143,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+ 

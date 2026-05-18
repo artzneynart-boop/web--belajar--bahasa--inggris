@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MySpeakora — Beranda</title>
+  <title>MySpeakora — Materi</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/style.css"/>
+  <style>
+    /* Extra top padding so content clears the fixed navbar */
+    #materi { padding-top: 110px; min-height: 100vh; }
+  </style>
 </head>
 <body>
  
 <!-- ═══════ NAVBAR ═══════ -->
 <nav id="navbar">
-  <a class="nav-logo" href="index.html">
+  <a class="nav-logo" href="index.php">
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html"   class="active">🏠 Home</a></li>
-    <li><a href="materi.html">📚 Materi</a></li>
-    <li><a href="kuis.html">🧠 Kuis</a></li>
-    <li><a href="kamus.html">📖 Kamus</a></li>
+    <li><a href="index.php">🏠 Home</a></li>
+    <li><a href="materi.php" class="active">📚 Materi</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
+    <li><a href="kamus.php">📖 Kamus</a></li>
   </ul>
   <div class="nav-auth">
     <a class="btn-login"    onclick="openModal('login')">Login</a>
@@ -30,50 +34,48 @@
   </div>
 </nav>
  
-<!-- ═══════ HERO ═══════ -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span>Platform Belajar #1 Indonesia</div>
-    <h1>Kuasai Bahasa Inggris dengan <em>Cara Mudah & Menyenangkan</em></h1>
-    <p class="hero-sub">Belajar vocabulary, grammar, speaking, dan listening dengan metode interaktif yang terbukti efektif. Mulai gratis, tanpa batas waktu!</p>
-    <div class="hero-cta">
-      <a href="materi.html" class="btn-primary">🚀 Mulai Belajar Gratis</a>
-      <a href="kuis.html"   class="btn-secondary">🎯 Coba Kuis</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Pelajar Aktif</div></div>
-      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Materi Pelajaran</div></div>
-      <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Tingkat Kepuasan</div></div>
-    </div>
-  </div>
+<!-- ═══════ MATERI ═══════ -->
+<section id="materi">
+  <div class="section-tag">📚 Materi Lengkap</div>
+  <h2 class="section-title">Semua yang Kamu Butuhkan<br>Ada di Sini</h2>
+  <p class="section-sub">Dari level pemula hingga mahir, materi kami dirancang oleh ahli bahasa Inggris berpengalaman.</p>
  
-  <div class="hero-visual">
-    <div class="hero-card-main">
-      <div class="lesson-header">
-        <div class="lesson-icon">📖</div>
-        <div>
-          <h4>Word of the Day</h4>
-          <p>Vocabulary Builder</p>
-        </div>
-      </div>
-      <div class="word-of-day">
-        <div class="wod-label">✨ Today's Word</div>
-        <div class="wod-word">Perseverance</div>
-        <div class="wod-phonetic">/ˌpɜːr.sɪˈvɪr.əns/</div>
-        <div class="wod-meaning">🇮🇩 Ketekunan; kemampuan untuk terus berusaha meskipun ada kesulitan.</div>
-      </div>
-      <div class="progress-section">
-        <label><span>Progress Hari Ini</span><span>68%</span></label>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-      </div>
+  <div class="materi-grid">
+    <div class="materi-card" onclick="this.style.borderColor='var(--blue-400)'">
+      <div class="materi-icon" style="background:#eff6ff">🔤</div>
+      <h3>Vocabulary</h3>
+      <p>Pelajari ribuan kosakata bahasa Inggris dengan contoh kalimat dan latihan interaktif.</p>
+      <span class="materi-badge">1.200+ Kata</span>
     </div>
-    <div class="floating-card fc-1">
-      <div class="fc-icon" style="background:var(--blue-50)">🔥</div>
-      7 Day Streak!
+    <div class="materi-card">
+      <div class="materi-icon" style="background:#f0fdf4">📝</div>
+      <h3>Grammar</h3>
+      <p>Kuasai tata bahasa mulai dari tenses, preposisi, hingga kalimat kompleks dengan penjelasan mudah.</p>
+      <span class="materi-badge">80 Topik</span>
     </div>
-    <div class="floating-card fc-2">
-      <div class="fc-icon" style="background:var(--blue-50)">⭐</div>
-      +150 XP Earned
+    <div class="materi-card">
+      <div class="materi-icon" style="background:#fff7ed">🎤</div>
+      <h3>Speaking</h3>
+      <p>Latih kemampuan berbicara dengan simulasi percakapan nyata dan feedback langsung.</p>
+      <span class="materi-badge">200+ Dialog</span>
+    </div>
+    <div class="materi-card">
+      <div class="materi-icon" style="background:#fdf2f8">👂</div>
+      <h3>Listening</h3>
+      <p>Asah kemampuan mendengar dengan audio native speaker dari berbagai aksen dunia.</p>
+      <span class="materi-badge">150 Audio</span>
+    </div>
+    <div class="materi-card">
+      <div class="materi-icon" style="background:#f0fdfa">✍️</div>
+      <h3>Writing</h3>
+      <p>Belajar menulis email, esai, dan surat resmi dengan template dan panduan lengkap.</p>
+      <span class="materi-badge">60 Template</span>
+    </div>
+    <div class="materi-card">
+      <div class="materi-icon" style="background:#fafaf0">📖</div>
+      <h3>Reading</h3>
+      <p>Latihan membaca teks dari berbagai topik: berita, fiksi, sains, dan budaya populer.</p>
+      <span class="materi-badge">300+ Artikel</span>
     </div>
   </div>
 </section>
@@ -143,4 +145,3 @@
 <script src="script.js"></script>
 </body>
 </html>
- 
