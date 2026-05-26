@@ -105,6 +105,66 @@
   </div>
 </div>
  
+
+<section class="faq" id="faq">
+
+  <h2 class="faq-title">QUESTION</h2>
+
+  <div class="faq-container">
+<div class="faq-item">
+  <button class="faq-question">
+    Why should you choose Speakora?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Speakora provides interactive English learning materials,
+      modern design, beginner-friendly lessons, and an enjoyable
+      learning experience for all users.
+    </p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    What makes our platform different?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Our platform combines vocabulary, speaking practice,
+      grammar learning, and simple explanations in one place
+      to make learning English easier and faster.
+    </p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    Is this website suitable for beginners?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Yes! Speakora is designed for beginners with simple lessons,
+      easy navigation, and step-by-step learning materials.
+    </p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    Can I learn English anywhere and anytime?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Absolutely. Speakora can be accessed anytime through your
+      smartphone or computer, making learning flexible and convenient.
+    </p>
+  </div>
+</div>
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="footer-top">
@@ -143,4 +203,3 @@
 <script src="script.js"></script>
 </body>
 </html>
- 

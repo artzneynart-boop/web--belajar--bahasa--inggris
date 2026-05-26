@@ -90,6 +90,7 @@
         </div>
         <span class="k-type">Adjective</span>
       </div>
+      
     </div>
   </div>
 </section>
