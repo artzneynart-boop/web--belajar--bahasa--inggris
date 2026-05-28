@@ -91,16 +91,33 @@
   </div>
 </div>
  
-<!-- ═══════ MODAL REGISTER ═══════ -->
 <div class="modal-overlay" id="registerModal" onclick="closeOnBg(event,'registerModal')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
     <h2>Buat Akun Gratis 🚀</h2>
     <p>Bergabung dengan 50.000+ pelajar aktif</p>
-    <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Nama kamu" /></div>
-    <div class="form-group"><label>Email</label><input type="email" placeholder="email@kamu.com" /></div>
-    <div class="form-group"><label>Password</label><input type="password" placeholder="Min. 8 karakter" /></div>
-    <button class="btn-form">Daftar Gratis →</button>
+
+    <!-- ✅ Tambah form tag -->
+    <form method="POST" action="simpan_user.php">
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <!-- ✅ Tambah name="username" -->
+        <input type="text" name="username" placeholder="username" />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <!-- ✅ Tambah name="email" -->
+        <input type="email" name="email" placeholder="email@kamu.com" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <!-- ✅ Tambah name="password" -->
+        <input type="password" name="password" placeholder="Min. 8 karakter" />
+      </div>
+      <!-- ✅ Ganti button jadi type="submit" -->
+      <button type="submit" class="btn-form">Daftar Gratis →</button>
+    </form>
+
     <div class="modal-switch">Sudah punya akun? <a onclick="switchModal('registerModal','loginModal')">Masuk di sini</a></div>
   </div>
 </div>
