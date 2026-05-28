@@ -61,6 +61,11 @@ nav {
   color: white; font-size: 18px; font-weight: 800;
   letter-spacing: -1px;
 }
+
+.navbar-logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+
+}
 .nav-logo-text {
   font-size: 1.2rem; font-weight: 800;
   color: var(--blue-700); letter-spacing: -.5px;
