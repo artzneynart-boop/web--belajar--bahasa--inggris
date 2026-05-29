@@ -1,8 +1,3 @@
-<?php
-session_start();
-$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
-$username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,7 +8,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
+ 
 <!-- ═══════ NAVBAR ═══════ -->
 <nav id="navbar">
   <a class="nav-logo" href="index.php">
@@ -21,25 +16,20 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.php" class="active">🏠 Home</a></li>
+    <li><a href="index.php"   class="active">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
     <li><a href="kuis.php">🧠 Kuis</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
   </ul>
   <div class="nav-auth">
-    <?php if ($isLoggedIn): ?>
-      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
-      <a class="btn-register" href="logout.php">Logout</a>
-    <?php else: ?>
-      <a class="btn-login"    onclick="openModal('login')">Login</a>
-      <a class="btn-register" onclick="openModal('register')">Register</a>
-    <?php endif; ?>
+    <a class="btn-login"    onclick="openModal('login')">Login</a>
+    <a class="btn-register" onclick="openModal('register')">Register</a>
   </div>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
-
+ 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="home">
   <div class="hero-content">
@@ -47,8 +37,8 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <h1>Kuasai Bahasa Inggris dengan <em>Cara Mudah & Menyenangkan</em></h1>
     <p class="hero-sub">Belajar vocabulary, grammar, speaking, dan listening dengan metode interaktif yang terbukti efektif. Mulai gratis, tanpa batas waktu!</p>
     <div class="hero-cta">
-      <a href="materi.php" class="btn-primary">🚀 Mulai Belajar Gratis</a>
-      <a href="kuis.php"   class="btn-secondary">🎯 Coba Kuis</a>
+      <a href="materi.html" class="btn-primary">🚀 Mulai Belajar Gratis</a>
+      <a href="kuis.html"   class="btn-secondary">🎯 Coba Kuis</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Pelajar Aktif</div></div>
@@ -56,7 +46,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
       <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Tingkat Kepuasan</div></div>
     </div>
   </div>
-
+ 
   <div class="hero-visual">
     <div class="hero-card-main">
       <div class="lesson-header">
@@ -87,77 +77,93 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     </div>
   </div>
 </section>
-
-<?php if (!$isLoggedIn): ?>
+ 
 <!-- ═══════ MODAL LOGIN ═══════ -->
 <div class="modal-overlay" id="loginModal" onclick="closeOnBg(event,'loginModal')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
     <h2>Selamat Datang 👋</h2>
     <p>Masuk ke akun MySpeakora kamu</p>
-    <form method="POST" action="login.php">
-      <div class="form-group">
-        <label>Username</label>
-        <input type="text" name="username" placeholder="Username kamu" required />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="••••••••" required />
-      </div>
-      <button type="submit" class="btn-form">Masuk →</button>
-    </form>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="email@kamu.com" /></div>
+    <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" /></div>
+    <button class="btn-form">Masuk →</button>
     <div class="modal-switch">Belum punya akun? <a onclick="switchModal('loginModal','registerModal')">Daftar sekarang</a></div>
   </div>
 </div>
-
+ 
 <!-- ═══════ MODAL REGISTER ═══════ -->
 <div class="modal-overlay" id="registerModal" onclick="closeOnBg(event,'registerModal')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
     <h2>Buat Akun Gratis 🚀</h2>
     <p>Bergabung dengan 50.000+ pelajar aktif</p>
-    <form method="POST" action="simpan_user.php">
-      <div class="form-group">
-        <label>Username</label>
-        <input type="text" name="username" placeholder="Username kamu" required />
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="email@kamu.com" required />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Min. 8 karakter" required />
-      </div>
-      <button type="submit" class="btn-form">Daftar Gratis →</button>
-    </form>
+    <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Nama kamu" /></div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="email@kamu.com" /></div>
+    <div class="form-group"><label>Password</label><input type="password" placeholder="Min. 8 karakter" /></div>
+    <button class="btn-form">Daftar Gratis →</button>
     <div class="modal-switch">Sudah punya akun? <a onclick="switchModal('registerModal','loginModal')">Masuk di sini</a></div>
   </div>
 </div>
-<?php endif; ?>
+ 
 
-<!-- ═══════ FAQ ═══════ -->
 <section class="faq" id="faq">
+
   <h2 class="faq-title">QUESTION</h2>
+
   <div class="faq-container">
-    <div class="faq-item">
-      <button class="faq-question">Why should you choose Speakora? <span>+</span></button>
-      <div class="faq-answer"><p>Speakora provides interactive English learning materials, modern design, beginner-friendly lessons, and an enjoyable learning experience for all users.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">What makes our platform different? <span>+</span></button>
-      <div class="faq-answer"><p>Our platform combines vocabulary, speaking practice, grammar learning, and simple explanations in one place to make learning English easier and faster.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Is this website suitable for beginners? <span>+</span></button>
-      <div class="faq-answer"><p>Yes! Speakora is designed for beginners with simple lessons, easy navigation, and step-by-step learning materials.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Can I learn English anywhere and anytime? <span>+</span></button>
-      <div class="faq-answer"><p>Absolutely. Speakora can be accessed anytime through your smartphone or computer, making learning flexible and convenient.</p></div>
-    </div>
+<div class="faq-item">
+  <button class="faq-question">
+    Why should you choose Speakora?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Speakora provides interactive English learning materials,
+      modern design, beginner-friendly lessons, and an enjoyable
+      learning experience for all users.
+    </p>
   </div>
-</section>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    What makes our platform different?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Our platform combines vocabulary, speaking practice,
+      grammar learning, and simple explanations in one place
+      to make learning English easier and faster.
+    </p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    Is this website suitable for beginners?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Yes! Speakora is designed for beginners with simple lessons,
+      easy navigation, and step-by-step learning materials.
+    </p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question">
+    Can I learn English anywhere and anytime?
+    <span>+</span>
+  </button>
+  <div class="faq-answer">
+    <p>
+      Absolutely. Speakora can be accessed anytime through your
+      smartphone or computer, making learning flexible and convenient.
+    </p>
+  </div>
+</div>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
@@ -170,9 +176,9 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
       <p>Platform belajar bahasa Inggris online terbaik untuk pelajar Indonesia. Gratis, lengkap, dan menyenangkan.</p>
     </div>
     <div class="footer-col"><h4>Fitur</h4><ul>
-      <li><a href="materi.php">Materi</a></li>
-      <li><a href="kuis.php">Kuis</a></li>
-      <li><a href="kamus.php">Kamus</a></li>
+      <li><a href="materi.html">Materi</a></li>
+      <li><a href="kuis.html">Kuis</a></li>
+      <li><a href="kamus.html">Kamus</a></li>
       <li><a href="#">Leaderboard</a></li>
     </ul></div>
     <div class="footer-col"><h4>Perusahaan</h4><ul>
@@ -193,7 +199,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <p>📧 hello@MySpeakora.id</p>
   </div>
 </footer>
-
+ 
 <script src="script.js"></script>
 </body>
 </html>

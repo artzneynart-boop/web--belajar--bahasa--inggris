@@ -2,71 +2,37 @@
 session_start();
 include 'koneksi.php';
 
-if(isset($_POST['login'])){
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: index.php");
+    exit;
+}
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+$username = trim($_POST['username'] ?? '');
+$password =       $_POST['password'] ?? '';
 
-    $query = mysqli_query(
-        $conn,
-        "SELECT * FROM users WHERE username='$username'"
-    );
+if (empty($username) || empty($password)) {
+    echo "<script>alert('Username dan password harus diisi!'); history.back();</script>";
+    exit;
+}
 
-    $data = mysqli_fetch_assoc($query);
+// Prepared statement — aman dari SQL injection
+$stmt = mysqli_prepare($conn, "SELECT id, username, password FROM users WHERE username = ?");
+mysqli_stmt_bind_param($stmt, "s", $username);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$data   = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
 
-    if($data){
+if ($data && password_verify($password, $data['password'])) {
+    // Login sukses — simpan session
+    $_SESSION['user_id']  = $data['id'];
+    $_SESSION['username'] = $data['username'];
+    $_SESSION['loggedin'] = true;
 
-        if(password_verify($password, $data['password'])){
-
-            $_SESSION['username'] = $data['username'];
-
-            header("Location: index.php");
-            exit;
-
-        } else {
-            echo "Password salah!";
-        }
-
-    } else {
-        echo "Username tidak ditemukan!";
-    }
+    header("Location: index.php");
+    exit;
+} else {
+    echo "<script>alert('Username atau password salah!'); history.back();</script>";
+    exit;
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-
-    <h2>Login</h2>
-
-    <form method="POST">
-
-        <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-        >
-
-        <br><br>
-
-        <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-        >
-
-        <br><br>
-
-        <button type="submit" name="login">
-            Login
-        </button>
-
-    </form>
-
-</body>
-</html>
