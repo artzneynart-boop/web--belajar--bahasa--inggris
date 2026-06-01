@@ -20,6 +20,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
+</h1>
   <ul class="nav-links">
     <li><a href="index.php" class="active">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
