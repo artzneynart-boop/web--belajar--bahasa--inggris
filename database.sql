@@ -14,3 +14,12 @@ CREATE TABLE IF NOT EXISTS users (
   password   VARCHAR(255) NOT NULL,          -- bcrypt hash
   created_at TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE kamus (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kata_inggris VARCHAR(100) NOT NULL,
+    arti_indonesia VARCHAR(255) NOT NULL,
+    contoh_kalimat TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
