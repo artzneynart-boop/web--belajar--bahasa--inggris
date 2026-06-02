@@ -68,10 +68,6 @@ nav {
   animation: logoFloat 2s ease-in-out infinite;
 }
 
-.nav-logo-icon:hover {
-  animation-play-state: paused;
-  transform: scale(1.1);
-}
 
 @keyframes logoFloat {
   0%,100% {
