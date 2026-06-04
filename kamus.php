@@ -25,13 +25,9 @@ include 'koneksi.php';
   <ul class="nav-links">
     <li><a href="index.php">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
-    <li><a href="kuis.php">🧠 Kuis</a></li>
     <li><a href="kamus.php" class="active">📖 Kamus</a></li>
   </ul>
-  <div class="nav-auth">
-    <a class="btn-login"    onclick="openModal('login')">Login</a>
-    <a class="btn-register" onclick="openModal('register')">Register</a>
-  </div>
+
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>

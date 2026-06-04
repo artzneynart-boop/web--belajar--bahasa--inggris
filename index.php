@@ -24,7 +24,6 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
   <ul class="nav-links">
     <li><a href="index.php" class="active">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
-    <li><a href="kuis.php">🧠 Kuis</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
   </ul>
   <div class="nav-auth">
