@@ -1,3 +1,7 @@
+<?php
+include 'koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -90,6 +94,95 @@
         </div>
         <span class="k-type">Adjective</span>
       </div>
+    <div class="kamus-item">
+  <div>
+    <div class="k-word">Apple</div>
+    <div class="k-phonetic">/ˈæp.əl/</div>
+    <div class="k-meaning">Apel; buah yang manis dan sehat</div>
+  </div>
+  <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Book</div>
+    <div class="k-phonetic">/bʊk/</div>
+    <div class="k-meaning">Buku; kumpulan halaman berisi tulisan</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Cat</div>
+    <div class="k-phonetic">/kæt/</div>
+    <div class="k-meaning">Kucing; hewan peliharaan yang lucu</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Dog</div>
+    <div class="k-phonetic">/dɒɡ/</div>
+    <div class="k-meaning">Anjing; hewan yang setia kepada manusia</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Computer</div>
+    <div class="k-phonetic">/kəmˈpjuː.tər/</div>
+    <div class="k-meaning">Komputer; alat elektronik untuk mengolah data</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">School</div>
+    <div class="k-phonetic">/skuːl/</div>
+    <div class="k-meaning">Sekolah; tempat belajar</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Teacher</div>
+    <div class="k-phonetic">/ˈtiː.tʃər/</div>
+    <div class="k-meaning">Guru; orang yang mengajar</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Student</div>
+    <div class="k-phonetic">/ˈstuː.dənt/</div>
+    <div class="k-meaning">Siswa; orang yang belajar</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">House</div>
+    <div class="k-phonetic">/haʊs/</div>
+    <div class="k-meaning">Rumah; tempat tinggal</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
+
+<div class="kamus-item">
+  <div>
+    <div class="k-word">Water</div>
+    <div class="k-phonetic">/ˈwɔː.tər/</div>
+    <div class="k-meaning">Air; cairan yang penting bagi kehidupan</div>
+  </div>
+   <span class="k-type">Adjective</span>
+</div>
       
     </div>
   </div>

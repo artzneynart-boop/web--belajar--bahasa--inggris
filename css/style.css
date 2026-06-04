@@ -29,7 +29,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: red !important;
+  background: rgb(255, 255, 255) !important;
   color: var(--gray-900);
   overflow-x: hidden;
 }
@@ -524,3 +524,4 @@ footer {
   .materi-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
 }
+

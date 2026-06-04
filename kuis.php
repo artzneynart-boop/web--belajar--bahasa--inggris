@@ -87,7 +87,68 @@
     </div>
   </div>
 </section>
- 
+
+<!-- ═══════ KUIS INTERAKTIF (TAMBAHAN) ═══════ -->
+<section id="kuis-interaktif">
+  <div class="section-tag">🎯 Mulai Berlatih</div>
+  <h2 class="section-title">Kuis Lengkap — 10 Soal</h2>
+  <p class="section-sub">Jawab 10 soal bertingkat dari Pemula hingga Mahir. Ada timer, feedback, dan skor akhir!</p>
+
+  <div class="ki-wrapper">
+    <!-- QUIZ SECTION -->
+    <div id="ki-quiz">
+      <div class="ki-topbar">
+        <div class="ki-progress-bg"><div class="ki-progress-fill" id="ki-progress-fill"></div></div>
+        <div class="ki-meta">
+          <span id="ki-counter">Soal 1 dari 10</span>
+          <span class="ki-badge" id="ki-level">Pemula</span>
+          <span class="ki-timer" id="ki-timer">⏱ 30</span>
+        </div>
+      </div>
+
+      <div class="ki-card">
+        <div class="ki-qnum" id="ki-qnum">Soal 1</div>
+        <div class="ki-qtext" id="ki-qtext"></div>
+      </div>
+
+      <div class="ki-opts" id="ki-opts"></div>
+
+      <div class="ki-feedback" id="ki-feedback"></div>
+
+      <div style="display:flex;justify-content:flex-end;">
+        <button class="ki-btn-next" id="ki-btn-next" disabled onclick="kiNext()">Lanjut →</button>
+      </div>
+    </div>
+
+    <!-- SCORE SECTION -->
+    <div id="ki-score" class="ki-hidden">
+      <div class="ki-score-inner">
+        <div class="ki-score-circle">
+          <span class="ki-score-num" id="ki-score-num">0</span>
+          <span class="ki-score-of">dari 10</span>
+        </div>
+        <div class="ki-score-title" id="ki-score-title">Bagus sekali!</div>
+        <div class="ki-score-sub" id="ki-score-sub">Kamu sudah menyelesaikan kuis ini.</div>
+        <div class="ki-score-stats">
+          <div class="ki-score-stat">
+            <div class="ki-score-val" style="color:#16a34a" id="ki-stat-benar">0</div>
+            <div class="ki-score-lbl">Benar</div>
+          </div>
+          <div class="ki-score-stat">
+            <div class="ki-score-val" style="color:#dc2626" id="ki-stat-salah">0</div>
+            <div class="ki-score-lbl">Salah</div>
+          </div>
+          <div class="ki-score-stat">
+            <div class="ki-score-val" id="ki-stat-pct">0%</div>
+            <div class="ki-score-lbl">Skor</div>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="kiRestart()">Ulangi Kuis ↺</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ MODAL LOGIN ═══════ -->
 <div class="modal-overlay" id="loginModal" onclick="closeOnBg(event,'loginModal')">
   <div class="modal">
@@ -151,5 +212,200 @@
 </footer>
  
 <script src="script.js"></script>
+
+<!-- ═══════ KUIS INTERAKTIF SCRIPT (TAMBAHAN) ═══════ -->
+<script>
+(function() {
+  const kiQuestions = [
+    {
+      text: 'She ___ to the market every Sunday with her family.',
+      opts: ['go','goes','going','gone'],
+      answer: 1, level: 'Pemula',
+      fb: { y: 'Benar! Untuk subjek orang ketiga tunggal (she/he/it), kata kerja ditambah akhiran -s/-es.', n: 'Salah. Karena subjeknya "she" (orang ketiga tunggal), gunakan "goes".' }
+    },
+    {
+      text: 'They ___ playing football when it started to rain.',
+      opts: ['was','are','were','is'],
+      answer: 2, level: 'Pemula',
+      fb: { y: 'Benar! "They" adalah subjek jamak sehingga menggunakan "were" dalam Past Continuous Tense.', n: 'Salah. Subjek "they" jamak, gunakan "were" untuk Past Continuous Tense.' }
+    },
+    {
+      text: 'I have ___ my homework before dinner.',
+      opts: ['finish','finished','finishing','finishes'],
+      answer: 1, level: 'Pemula',
+      fb: { y: 'Benar! Setelah "have/has/had" dalam Present Perfect, gunakan Past Participle (V3).', n: 'Salah. Present Perfect Tense = have + V3, jadi gunakan "finished".' }
+    },
+    {
+      text: 'The report ___ by the manager before the deadline.',
+      opts: ['submitted','was submitted','submitting','has submit'],
+      answer: 1, level: 'Menengah',
+      fb: { y: 'Benar! Ini kalimat pasif (Passive Voice): was/were + Past Participle.', n: 'Salah. Kalimat ini butuh Passive Voice: "was submitted" (was + V3).' }
+    },
+    {
+      text: 'If I ___ you, I would apologize to her immediately.',
+      opts: ['am','was','were','be'],
+      answer: 2, level: 'Menengah',
+      fb: { y: 'Benar! Dalam Conditional Type 2, gunakan "were" untuk semua subjek termasuk I.', n: 'Salah. Conditional Type 2 (situasi tidak nyata) menggunakan "were" untuk semua subjek.' }
+    },
+    {
+      text: 'She suggested ___ the meeting to next Monday.',
+      opts: ['to postpone','postponing','postpone','postponed'],
+      answer: 1, level: 'Menengah',
+      fb: { y: 'Benar! Kata kerja "suggest" diikuti gerund (V-ing), bukan infinitive.', n: 'Salah. "Suggest" selalu diikuti gerund (-ing): "postponing".' }
+    },
+    {
+      text: 'By the time she arrived, the guests ___.',
+      opts: ['had already left','already left','have already left','already leaving'],
+      answer: 0, level: 'Menengah',
+      fb: { y: 'Benar! Satu kejadian selesai sebelum kejadian lain di masa lalu → Past Perfect: had + V3.', n: 'Salah. Gunakan Past Perfect "had already left" untuk aksi yang selesai sebelum kejadian lain di masa lalu.' }
+    },
+    {
+      text: 'The more you practice, ___ you become.',
+      opts: ['the more fluent','more fluent','most fluent','the most fluent'],
+      answer: 0, level: 'Mahir',
+      fb: { y: 'Benar! Pola "The more..., the + comparative" digunakan untuk double comparison.', n: 'Salah. Gunakan pola "The more..., the + comparative adjective" → "the more fluent".' }
+    },
+    {
+      text: 'He denied ___ the confidential files from the server.',
+      opts: ['to steal','steal','having stolen','stolen'],
+      answer: 2, level: 'Mahir',
+      fb: { y: 'Benar! Setelah "deny" untuk aksi masa lalu, gunakan "having + V3".', n: 'Salah. Setelah "deny" untuk aksi masa lalu, gunakan "having + past participle" → "having stolen".' }
+    },
+    {
+      text: 'Not only ___ the exam, but she also received a scholarship.',
+      opts: ['she passed','did she pass','she did pass','passed she'],
+      answer: 1, level: 'Mahir',
+      fb: { y: 'Benar! Setelah "Not only" di awal kalimat, terjadi subject-auxiliary inversion: did + subjek + verb.', n: 'Salah. Setelah "Not only" di awal kalimat, gunakan inverted word order: "did she pass".' }
+    }
+  ];
+
+  let kiCurrent = 0, kiScore = 0, kiBenar = 0, kiSalah = 0;
+  let kiAnswered = false, kiTimerVal = 30, kiTimerInt = null;
+
+  function kiStartTimer() {
+    clearInterval(kiTimerInt);
+    kiTimerVal = 30;
+    kiUpdateTimer();
+    kiTimerInt = setInterval(function() {
+      kiTimerVal--;
+      kiUpdateTimer();
+      if (kiTimerVal <= 0) { clearInterval(kiTimerInt); if (!kiAnswered) kiTimeOut(); }
+    }, 1000);
+  }
+
+  function kiUpdateTimer() {
+    var el = document.getElementById('ki-timer');
+    if (!el) return;
+    el.textContent = '⏱ ' + kiTimerVal;
+    el.className = kiTimerVal <= 10 ? 'ki-timer urgent' : 'ki-timer';
+  }
+
+  function kiTimeOut() {
+    kiAnswered = true; kiSalah++;
+    document.querySelectorAll('.ki-opt').forEach(function(o) { o.classList.add('ki-disabled'); });
+    document.querySelectorAll('.ki-opt')[kiQuestions[kiCurrent].answer].classList.add('ki-correct');
+    kiShowFeedback(false, true);
+    document.getElementById('ki-btn-next').disabled = false;
+  }
+
+  function kiLoad(idx) {
+    kiAnswered = false;
+    var q = kiQuestions[idx];
+    var pct = Math.round((idx + 1) / 10 * 100);
+    document.getElementById('ki-progress-fill').style.width = pct + '%';
+    document.getElementById('ki-counter').textContent = 'Soal ' + (idx + 1) + ' dari 10';
+    document.getElementById('ki-qnum').textContent = 'Soal ' + (idx + 1);
+    document.getElementById('ki-level').textContent = q.level;
+    document.getElementById('ki-qtext').textContent = q.text;
+    var grid = document.getElementById('ki-opts');
+    grid.innerHTML = '';
+    var letters = ['A','B','C','D'];
+    q.opts.forEach(function(opt, i) {
+      var btn = document.createElement('button');
+      btn.className = 'ki-opt';
+      btn.innerHTML = '<span class="ki-opt-letter">' + letters[i] + '</span><span class="ki-opt-text">' + opt + '</span>';
+      btn.onclick = function() { kiSelect(i); };
+      grid.appendChild(btn);
+    });
+    var fb = document.getElementById('ki-feedback');
+    fb.className = 'ki-feedback';
+    fb.textContent = '';
+    document.getElementById('ki-btn-next').disabled = true;
+    kiStartTimer();
+  }
+
+  function kiSelect(i) {
+    if (kiAnswered) return;
+    kiAnswered = true;
+    clearInterval(kiTimerInt);
+    var q = kiQuestions[kiCurrent];
+    var opts = document.querySelectorAll('.ki-opt');
+    opts.forEach(function(o) { o.classList.add('ki-disabled'); });
+    if (i === q.answer) {
+      opts[i].classList.add('ki-correct');
+      kiScore++; kiBenar++;
+      kiShowFeedback(true, false);
+    } else {
+      opts[i].classList.add('ki-wrong');
+      opts[q.answer].classList.add('ki-correct');
+      kiSalah++;
+      kiShowFeedback(false, false);
+    }
+    document.getElementById('ki-btn-next').disabled = false;
+  }
+
+  function kiShowFeedback(isCorrect, isTimeout) {
+    var box = document.getElementById('ki-feedback');
+    var q = kiQuestions[kiCurrent];
+    if (isTimeout) {
+      box.className = 'ki-feedback ki-fb-wrong';
+      box.textContent = '⏰ Waktu habis! ' + q.fb.n;
+    } else if (isCorrect) {
+      box.className = 'ki-feedback ki-fb-correct';
+      box.textContent = '✓ ' + q.fb.y;
+    } else {
+      box.className = 'ki-feedback ki-fb-wrong';
+      box.textContent = '✗ ' + q.fb.n;
+    }
+  }
+
+  window.kiNext = function() {
+    kiCurrent++;
+    if (kiCurrent >= 10) { kiShowScore(); } else { kiLoad(kiCurrent); }
+  };
+
+  function kiShowScore() {
+    clearInterval(kiTimerInt);
+    document.getElementById('ki-quiz').style.display = 'none';
+    document.getElementById('ki-score').classList.remove('ki-hidden');
+    document.getElementById('ki-score-num').textContent = kiScore;
+    document.getElementById('ki-stat-benar').textContent = kiBenar;
+    document.getElementById('ki-stat-salah').textContent = kiSalah;
+    document.getElementById('ki-stat-pct').textContent = Math.round(kiScore / 10 * 100) + '%';
+    var pct = kiScore / 10 * 100;
+    var title, sub;
+    if      (pct >= 90) { title = 'Luar Biasa! 🏆'; sub  = 'Kamu menguasai materi ini dengan sangat baik!'; }
+    else if (pct >= 70) { title = 'Bagus Sekali! 🎉'; sub = 'Kamu sudah paham sebagian besar materi ini.'; }
+    else if (pct >= 50) { title = 'Cukup Baik! 💪'; sub  = 'Masih ada yang perlu diperbaiki. Coba lagi!'; }
+    else                { title = 'Tetap Semangat! 📚'; sub = 'Pelajari lagi materinya, kamu pasti bisa lebih baik!'; }
+    document.getElementById('ki-score-title').textContent = title;
+    document.getElementById('ki-score-sub').textContent = sub;
+  }
+
+  window.kiRestart = function() {
+    kiCurrent = 0; kiScore = 0; kiBenar = 0; kiSalah = 0;
+    document.getElementById('ki-quiz').style.display = 'block';
+    document.getElementById('ki-score').classList.add('ki-hidden');
+    kiLoad(0);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { kiLoad(0); });
+  } else {
+    kiLoad(0);
+  }
+})();
+</script>
+
 </body>
 </html>
