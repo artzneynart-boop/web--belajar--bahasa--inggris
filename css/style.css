@@ -524,4 +524,408 @@ footer {
   .materi-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
 }
+.welcome-user{
+    max-width:1200px;
+    margin:120px auto 30px;
+    padding:24px;
+    border-radius:20px;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
 
+    color:white;
+}
+
+.welcome-user h2{
+    margin-bottom:8px;
+}
+
+.welcome-user p{
+    opacity:.9;
+}
+.user-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-right:12px;
+}
+
+.user-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-weight:700;
+    font-size:15px;
+}
+
+.user-detail{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+}
+
+.user-label{
+    font-size:11px;
+    color:#64748b;
+}
+
+.user-name{
+    font-size:14px;
+    font-weight:700;
+    color:#0f172a;
+}
+/* =========================
+   QUIZ INTERAKTIF
+========================= */
+
+#kuis-interaktif{
+    padding:80px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.ki-wrapper{
+    background:#fff;
+    border-radius:24px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.ki-topbar{
+    margin-bottom:30px;
+}
+
+.ki-progress-bg{
+    width:100%;
+    height:12px;
+    background:#e2e8f0;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.ki-progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #4f46e5,
+        #7c3aed
+    );
+    transition:.4s ease;
+}
+
+.ki-meta{
+    margin-top:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.ki-badge{
+    background:#ede9fe;
+    color:#6d28d9;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.ki-timer{
+    background:#eff6ff;
+    color:#2563eb;
+    padding:8px 14px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+.ki-timer.urgent{
+    background:#fee2e2;
+    color:#dc2626;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+.ki-card{
+    background:#f8fafc;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+    border:1px solid #e2e8f0;
+}
+
+.ki-qnum{
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.ki-qtext{
+    font-size:22px;
+    font-weight:700;
+    color:#0f172a;
+    line-height:1.5;
+}
+
+.ki-opts{
+    display:grid;
+    gap:15px;
+}
+
+.ki-opt{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:16px;
+    background:white;
+    border:2px solid #e2e8f0;
+    cursor:pointer;
+    transition:.25s;
+    text-align:left;
+}
+
+.ki-opt:hover{
+    transform:translateY(-2px);
+    border-color:#6366f1;
+    box-shadow:0 10px 25px rgba(99,102,241,.15);
+}
+
+.ki-opt-letter{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#eef2ff;
+    color:#4f46e5;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.ki-opt-text{
+    font-weight:600;
+    color:#334155;
+}
+
+.ki-correct{
+    background:#ecfdf5 !important;
+    border-color:#22c55e !important;
+}
+
+.ki-wrong{
+    background:#fef2f2 !important;
+    border-color:#ef4444 !important;
+}
+
+.ki-disabled{
+    pointer-events:none;
+}
+
+.ki-feedback{
+    margin-top:20px;
+    padding:16px;
+    border-radius:14px;
+    display:none;
+    font-weight:600;
+}
+
+.ki-fb-correct{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.ki-fb-wrong{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.ki-btn-next{
+    margin-top:20px;
+    padding:14px 25px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ki-btn-next:hover{
+    transform:translateY(-2px);
+}
+
+.ki-btn-next:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* =========================
+   SCORE
+========================= */
+
+.ki-hidden{
+    display:none;
+}
+
+.ki-score-inner{
+    text-align:center;
+    padding:30px;
+}
+
+.ki-score-circle{
+    width:180px;
+    height:180px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.ki-score-num{
+    font-size:60px;
+    font-weight:800;
+}
+
+.ki-score-of{
+    font-size:14px;
+}
+
+.ki-score-title{
+    font-size:28px;
+    font-weight:800;
+    color:#0f172a;
+    margin-bottom:10px;
+}
+
+.ki-score-sub{
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.ki-score-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
+}
+
+.ki-score-stat{
+    background:#f8fafc;
+    border-radius:16px;
+    padding:20px;
+}
+
+.ki-score-val{
+    font-size:28px;
+    font-weight:800;
+}
+
+.ki-score-lbl{
+    color:#64748b;
+    margin-top:6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .ki-wrapper{
+        padding:20px;
+    }
+
+    .ki-qtext{
+        font-size:18px;
+    }
+
+    .ki-score-stats{
+        grid-template-columns:1fr;
+    }
+
+    .ki-meta{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+#navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    display:flex;
+    align-items:center;
+
+    padding:15px 40px;
+    background:#fff;
+    z-index:1000;
+
+    box-sizing:border-box;
+}
+
+/* Logo kiri */
+.nav-logo{
+    flex:1;
+}
+
+/* Menu selalu di tengah */
+.nav-links{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:30px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+/* Login / User selalu di kanan */
+.nav-auth{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}

@@ -29,8 +29,8 @@ if ($data && password_verify($password, $data['password'])) {
     $_SESSION['username'] = $data['username'];
     $_SESSION['loggedin'] = true;
 
-    header("Location: index.php");
-    exit;
+header("Location: kuis.php");
+exit;
 } else {
     echo "<script>alert('Username atau password salah!'); history.back();</script>";
     exit;

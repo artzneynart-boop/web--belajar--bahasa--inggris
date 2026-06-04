@@ -350,21 +350,8 @@ $topics = [
   <ul class="nav-links">
     <li><a href="index.php">🏠 Home</a></li>
     <li><a href="materi.php" class="active">📚 Materi</a></li>
-    <li><a href="kuis.php">🧠 Kuis</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
   </ul>
-  <div class="nav-auth">
-    <?php if ($isLoggedIn): ?>
-      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
-      <a class="btn-register" href="logout.php">Logout</a>
-    <?php else: ?>
-      <a class="btn-login"    onclick="openModal('login')">Login</a>
-      <a class="btn-register" onclick="openModal('register')">Register</a>
-    <?php endif; ?>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
 <?php if ($topic && isset($topics[$topic])): ?>
