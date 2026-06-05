@@ -174,8 +174,7 @@ $topics = [
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="./css/style.css"/>
   <style>
-    /* ── GLOBAL ADDITIONS ── */
-    #materi { padding-top: 110px; min-height: 100vh; }
+   
 
     /* ── SEARCH BAR ── */
     .search-wrap {
@@ -349,10 +348,24 @@ $topics = [
   </a>
   <ul class="nav-links">
     <li><a href="index.php">🏠 Home</a></li>
-    <li><a href="materi.php" class="active">📚 Materi</a></li>
+    <li><a href="materi.php">📚 Materi</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
   </ul>
+  <div class="nav-auth">
+    <?php if ($isLoggedIn): ?>
+      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
+      <a class="btn-register" href="logout.php">Logout</a>
+    <?php else: ?>
+      <a class="btn-login"    onclick="openModal('login')">Login</a>
+      <a class="btn-register" onclick="openModal('register')">Register</a>
+    <?php endif; ?>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
 
 <?php if ($topic && isset($topics[$topic])): ?>
   <?php $t = $topics[$topic]; ?>
@@ -493,7 +506,7 @@ $topics = [
     </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
+    <p>© 2026 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
     <p>📧 hello@MySpeakora.id</p>
   </div>
 </footer>

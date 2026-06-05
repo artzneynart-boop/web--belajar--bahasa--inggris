@@ -20,11 +20,11 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
-</h1>
   <ul class="nav-links">
-    <li><a href="index.php" class="active">🏠 Home</a></li>
+    <li><a href="index.php">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
   </ul>
   <div class="nav-auth">
     <?php if ($isLoggedIn): ?>
@@ -141,20 +141,21 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
   <h2 class="faq-title">QUESTION</h2>
   <div class="faq-container">
     <div class="faq-item">
-      <button class="faq-question">Why should you choose Speakora? <span>+</span></button>
-      <div class="faq-answer"><p>Speakora provides interactive English learning materials, modern design, beginner-friendly lessons, and an enjoyable learning experience for all users.</p></div>
+      <button class="faq-question">Mengapa Anda harus memilih Speakora? <span>+</span></button>
+      <div class="faq-answer"><p>Speakora menyediakan materi pembelajaran bahasa Inggris interaktif, desain modern, pelajaran yang ramah bagi pemula, dan pengalaman belajar yang menyenangkan bagi semua pengguna.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What makes our platform different? <span>+</span></button>
-      <div class="faq-answer"><p>Our platform combines vocabulary, speaking practice, grammar learning, and simple explanations in one place to make learning English easier and faster.</p></div>
+      <button class="faq-question">Apa yang membuat platform kami berbeda? <span>+</span></button>
+      <div class="faq-answer"><p>
+        Platform kami menggabungkan kosakata, latihan berbicara, pembelajaran tata bahasa, dan penjelasan sederhana di satu tempat untuk membuat pembelajaran bahasa Inggris lebih mudah dan cepat.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Is this website suitable for beginners? <span>+</span></button>
-      <div class="faq-answer"><p>Yes! Speakora is designed for beginners with simple lessons, easy navigation, and step-by-step learning materials.</p></div>
+      <button class="faq-question">Apakah situs web ini cocok untuk pemula? <span>+</span></button>
+      <div class="faq-answer"><p>Yes! Speakora dirancang untuk pemula dengan pelajaran sederhana, navigasi mudah, dan materi pembelajaran langkah demi langkah.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Can I learn English anywhere and anytime? <span>+</span></button>
-      <div class="faq-answer"><p>Absolutely. Speakora can be accessed anytime through your smartphone or computer, making learning flexible and convenient.</p></div>
+      <button class="faq-question">Bisakah saya belajar bahasa Inggris di mana saja dan kapan saja? <span>+</span></button>
+      <div class="faq-answer"><p>Tentu saja. Speakora dapat diakses kapan saja melalui ponsel pintar atau komputer Anda, sehingga pembelajaran menjadi fleksibel dan nyaman.</p></div>
     </div>
   </div>
 </section>
@@ -189,7 +190,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
+    <p>© 2026 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
     <p>📧 hello@MySpeakora.id</p>
   </div>
 </footer>

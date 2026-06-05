@@ -1,10 +1,5 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['loggedin'])){
-    header("Location: index.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -28,31 +23,26 @@ if(!isset($_SESSION['loggedin'])){
             My<span>Speakora</span>
         </span>
     </a>
-
     <ul class="nav-links">
-        <li><a href="kuis.php" class="active">🧠 Kuis</a></li>
+    <li><a href="index.php">🏠 Home</a></li>
+    <li><a href="materi.php">📚 Materi</a></li>
+    <li><a href="kamus.php">📖 Kamus</a></li>
+    <li><a href="kuis.php"class="active">🧠 Kuis</a></li>
     </ul>
-
     <div class="nav-auth">
 
-        <div class="user-info">
-            <div class="user-avatar">
-                <?= strtoupper(substr($_SESSION['username'],0,1)); ?>
-            </div>
-
-            <div class="user-detail">
-                <span class="user-label">Selamat Datang</span>
-                <span class="user-name">
-                    <?= htmlspecialchars($_SESSION['username']); ?>
-                </span>
-            </div>
-        </div>
-
-        <a href="logout.php" class="btn-register">
-            Logout
-        </a>
-
+       <div class="user-info">
+    <div class="user-avatar">
+        <?= strtoupper(substr($username,0,1)); ?>
     </div>
+
+    <div class="user-detail">
+        <span class="user-label">Selamat Datang</span>
+        <span class="user-name">
+            <?= htmlspecialchars($username); ?>
+        </span>
+    </div>
+</div>
 
     <div class="hamburger" onclick="toggleMenu()">
         <span></span>
@@ -263,7 +253,7 @@ if(!isset($_SESSION['loggedin'])){
     </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
+    <p>© 2026 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
     <p>📧 hello@MySpeakora.id</p>
   </div>
 </footer>

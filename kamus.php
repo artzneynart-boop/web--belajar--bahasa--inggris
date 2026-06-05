@@ -1,7 +1,10 @@
 <?php
+session_start();
 include 'koneksi.php';
-?>
 
+$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+$username = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,7 +14,6 @@ include 'koneksi.php';
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css"/>
   <style>
-    #kamus { padding-top: 110px; min-height: 100vh; }
   </style>
 </head>
 <body>
@@ -25,13 +27,23 @@ include 'koneksi.php';
   <ul class="nav-links">
     <li><a href="index.php">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
-    <li><a href="kamus.php" class="active">📖 Kamus</a></li>
+    <li><a href="kamus.php">📖 Kamus</a></li>
+    <li><a href="kuis.php">🧠 Kuis</a></li>
   </ul>
-
+  <div class="nav-auth">
+    <?php if ($isLoggedIn): ?>
+      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
+      <a class="btn-register" href="logout.php">Logout</a>
+    <?php else: ?>
+      <a class="btn-login"    onclick="openModal('login')">Login</a>
+      <a class="btn-register" onclick="openModal('register')">Register</a>
+    <?php endif; ?>
+  </div>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
+
  
 <!-- ═══════ KAMUS ═══════ -->
 <section id="kamus">
@@ -49,140 +61,31 @@ include 'koneksi.php';
       />
       <button onclick="searchKamus()">🔍 Cari</button>
     </div>
-    <div class="kamus-results" id="kamusResults">
-      <div class="kamus-item">
-        <div>
-          <div class="k-word">Beautiful</div>
-          <div class="k-phonetic">/ˈbjuː.tɪ.fəl/</div>
-          <div class="k-meaning">Indah; cantik; memiliki kecantikan yang luar biasa</div>
-        </div>
-        <span class="k-type">Adjective</span>
-      </div>
-      <div class="kamus-item">
-        <div>
-          <div class="k-word">Knowledge</div>
-          <div class="k-phonetic">/ˈnɒl.ɪdʒ/</div>
-          <div class="k-meaning">Pengetahuan; pemahaman tentang suatu hal</div>
-        </div>
-        <span class="k-type">Noun</span>
-      </div>
-      <div class="kamus-item">
-        <div>
-          <div class="k-word">Determine</div>
-          <div class="k-phonetic">/dɪˈtɜː.mɪn/</div>
-          <div class="k-meaning">Menentukan; memutuskan dengan tegas</div>
-        </div>
-        <span class="k-type">Verb</span>
-      </div>
-      <div class="kamus-item">
-        <div>
-          <div class="k-word">Ambitious</div>
-          <div class="k-phonetic">/æmˈbɪʃ.əs/</div>
-          <div class="k-meaning">Ambisius; memiliki keinginan kuat untuk sukses</div>
-        </div>
-        <span class="k-type">Adjective</span>
-      </div>
-      <div class="kamus-item">
-        <div>
-          <div class="k-word">Eloquent</div>
-          <div class="k-phonetic">/ˈel.ə.kwənt/</div>
-          <div class="k-meaning">Fasih; mampu berbicara dengan jelas dan persuasif</div>
-        </div>
-        <span class="k-type">Adjective</span>
-      </div>
-    <div class="kamus-item">
-  <div>
-    <div class="k-word">Apple</div>
-    <div class="k-phonetic">/ˈæp.əl/</div>
-    <div class="k-meaning">Apel; buah yang manis dan sehat</div>
-  </div>
-  <span class="k-type">Adjective</span>
-</div>
+   <div class="kamus-results" id="kamusResults">
+
+<?php
+$query = mysqli_query($conn, "SELECT * FROM kamus ORDER BY kata_inggris ASC");
+
+while($row = mysqli_fetch_assoc($query)):
+?>
 
 <div class="kamus-item">
   <div>
-    <div class="k-word">Book</div>
-    <div class="k-phonetic">/bʊk/</div>
-    <div class="k-meaning">Buku; kumpulan halaman berisi tulisan</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
+    <div class="k-word"><?= htmlspecialchars($row['kata_inggris']) ?></div>
 
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Cat</div>
-    <div class="k-phonetic">/kæt/</div>
-    <div class="k-meaning">Kucing; hewan peliharaan yang lucu</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
+    <div class="k-phonetic">
+      <?= htmlspecialchars($row['fonetik']) ?>
+    </div>
 
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Dog</div>
-    <div class="k-phonetic">/dɒɡ/</div>
-    <div class="k-meaning">Anjing; hewan yang setia kepada manusia</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Computer</div>
-    <div class="k-phonetic">/kəmˈpjuː.tər/</div>
-    <div class="k-meaning">Komputer; alat elektronik untuk mengolah data</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">School</div>
-    <div class="k-phonetic">/skuːl/</div>
-    <div class="k-meaning">Sekolah; tempat belajar</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Teacher</div>
-    <div class="k-phonetic">/ˈtiː.tʃər/</div>
-    <div class="k-meaning">Guru; orang yang mengajar</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Student</div>
-    <div class="k-phonetic">/ˈstuː.dənt/</div>
-    <div class="k-meaning">Siswa; orang yang belajar</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">House</div>
-    <div class="k-phonetic">/haʊs/</div>
-    <div class="k-meaning">Rumah; tempat tinggal</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-
-<div class="kamus-item">
-  <div>
-    <div class="k-word">Water</div>
-    <div class="k-phonetic">/ˈwɔː.tər/</div>
-    <div class="k-meaning">Air; cairan yang penting bagi kehidupan</div>
-  </div>
-   <span class="k-type">Adjective</span>
-</div>
-      
+    <div class="k-meaning">
+      <?= htmlspecialchars($row['arti_indonesia']) ?>
     </div>
   </div>
-</section>
+</div>
+
+<?php endwhile; ?>
+
+</div>
  
 <!-- ═══════ MODAL LOGIN ═══════ -->
 <div class="modal-overlay" id="loginModal" onclick="closeOnBg(event,'loginModal')">
@@ -241,7 +144,7 @@ include 'koneksi.php';
     </ul></div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
+    <p>© 2026 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>
     <p>📧 hello@MySpeakora.id</p>
   </div>
 </footer>
