@@ -47,6 +47,7 @@ $username = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
  
 <!-- ═══════ KAMUS ═══════ -->
 <section id="kamus">
+  <div class="container">
   <div class="section-tag">📖 Kamus Digital</div>
   <h2 class="section-title">Kamus Inggris-Indonesia<br>Terlengkap</h2>
   <p class="section-sub">Cari arti kata dengan cepat, lengkap dengan contoh kalimat, sinonim, dan pelafalan.</p>
@@ -62,7 +63,9 @@ $username = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
       <button onclick="searchKamus()">🔍 Cari</button>
     </div>
    <div class="kamus-results" id="kamusResults">
-
+</div>
+    </div>
+</section>
 <?php
 $query = mysqli_query($conn, "SELECT * FROM kamus ORDER BY kata_inggris ASC");
 

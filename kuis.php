@@ -1,6 +1,9 @@
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+$username = $_SESSION['username'] ?? '';
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -31,54 +34,19 @@ session_start();
     </ul>
     <div class="nav-auth">
 
-       <div class="user-info">
-    <div class="user-avatar">
-        <?= strtoupper(substr($username,0,1)); ?>
-    </div>
 
-    <div class="user-detail">
-        <span class="user-label">Selamat Datang</span>
-        <span class="user-name">
-            <?= htmlspecialchars($username); ?>
-        </span>
-    </div>
-</div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</nav>
-
-<?php if(isset($_SESSION['loggedin'])): ?>
-
-    <span class="btn-login" style="cursor:default">
-        👋 <?= htmlspecialchars($_SESSION['username']) ?>
-    </span>
-
-    <a class="btn-register" href="logout.php">
-        Logout
-    </a>
-
-<?php endif; ?>
-
-</div>
+    <?php if ($isLoggedIn): ?>
+      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
+      <a class="btn-register" href="logout.php">Logout</a>
+    <?php else: ?>
+      <a class="btn-login"    onclick="openModal('login')">Login</a>
+      <a class="btn-register" onclick="openModal('register')">Register</a>
+    <?php endif; ?>
+  </div>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
-<section class="welcome-user">
-    <h2>
-        Halo,
-        <?= htmlspecialchars($_SESSION['username']); ?> 👋
-    </h2>
-
-    <p>
-        Selamat datang kembali.
-        Siap menguji kemampuan Bahasa Inggris hari ini?
-    </p>
-</section>
  
 <!-- ═══════ KUIS ═══════ -->
 <section id="kuis">

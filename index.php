@@ -21,12 +21,13 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.php">🏠 Home</a></li>
+    <li><a href="index.php" class="active">🏠 Home</a></li>
     <li><a href="materi.php">📚 Materi</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
     <li><a href="kuis.php">🧠 Kuis</a></li>
   </ul>
   <div class="nav-auth">
+
     <?php if ($isLoggedIn): ?>
       <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
       <a class="btn-register" href="logout.php">Logout</a>
@@ -39,7 +40,6 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <span></span><span></span><span></span>
   </div>
 </nav>
-
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="home">
   <div class="hero-content">

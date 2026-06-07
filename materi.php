@@ -365,10 +365,10 @@ $topics = [
     <span></span><span></span><span></span>
   </div>
 </nav>
-
-
 <?php if ($topic && isset($topics[$topic])): ?>
   <?php $t = $topics[$topic]; ?>
+
+  
   <!-- ═══════ HALAMAN TOPIK ═══════ -->
   <section id="materi">
     <div class="breadcrumb">
