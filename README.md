@@ -1,5 +1,5 @@
 THIS IS ABOUT OUR WEBSITE 
-REACT.JS
+                                                       REACT.JS
 
 1.	PENGERTIAN REACT.JS 
 
@@ -16,22 +16,22 @@ Berjalan dalam runtime Node JS, React JS tentunya merupakan aplikasi berbasis Ja
 
 •	Kenapa react js dipakai
 
-Performa Cepat dengan Virtual DOM 
+1. Performa Cepat dengan Virtual DOM 
 Pembaruan tampilan (DOM) asli pada halaman web konvensional sering kali lambat dan memakan memori. React mengatasi masalah ini dengan menciptakan Virtual DOM (salinan ringan di memori). Ketika ada perubahan data, React hanya akan memperbarui bagian User Interface yang berubah tanpa harus memuat ulang seluruh halaman web. 
 
-Arsitektur Berbasis Komponen (Reusable Components) 
+2. Arsitektur Berbasis Komponen (Reusable Components) 
 React memecah halaman web yang kompleks menjadi potongan-potongan kode kecil yang mandiri yang disebut Komponen. Komponen ini bersifat modular, artinya jika Anda membuat satu komponen tombol atau kotak pencarian, Anda dapat menggunakannya berulang kali di halaman lain tanpa perlu menulis ulang kodenya.
 
-Kemudahan Menulis Kode dengan JSX
+3. Kemudahan Menulis Kode dengan JSX
 React menggunakan JSX (JavaScript Syntax Extension), yaitu ekstensi sintaks yang memungkinkan Anda menulis struktur HTML langsung di dalam file JavaScript.
 
-Aliran Data Satu Arah (Unidirectional Data Flow)
+4. Aliran Data Satu Arah (Unidirectional Data Flow)
 Di dalam React, data mengalir dalam satu arah (dari komponen induk ke komponen anak). Pola ini membuat alur logika aplikasi menjadi lebih terprediksi, mempermudah pelacakan kesalahan (debugging), dan meminimalkan risiko munculnya bug pada aplikasi berskala besar.
 
- Ramah SEO (Search Engine Optimization)
+5. Ramah SEO (Search Engine Optimization)
 Aplikasi berbasis JavaScript murni terkadang sulit dibaca oleh mesin pencari seperti Google. Namun, React mendukung teknologi Server-Side Rendering (SSR) lewat ekosistemnya (seperti Next.js), sehingga konten web dapat dimuat di server terlebih dahulu sebelum dikirim ke browser. Hal ini membantu performa SEO dan mempercepat waktu tunggu pengguna.
 
-Ekosistem Luas dan Komunitas yang Solid
+6. Ekosistem Luas dan Komunitas yang Solid
 React didukung oleh komunitas pengembang global yang sangat besar serta raksasa teknologi Meta. Jika Anda menghadapi kendala teknis, Anda dapat dengan mudah menemukan dokumentasi, pustaka pihak ketiga, dan solusi di berbagai forum. Selain itu, belajar React mempermudah Anda beralih ke React Native jika ingin membuat aplikasi mobile Android dan iOS
 
 •	Sejarah singkat react.js
@@ -43,26 +43,26 @@ Seorang insinyur perangkat lunak di Facebook bernama Jordan Walke mulai mencari 
 
 •	KELEBIHAN REACT JS
 
-  Performa Ekstra Cepat: Berkat teknologi Virtual DOM, aplikasi tidak perlu memuat ulang seluruh halaman web saat terjadi perubahan data, melainkan hanya memperbarui bagian yang mengalami modifikasi saja.
+- Performa Ekstra Cepat: Berkat teknologi Virtual DOM, aplikasi tidak perlu memuat ulang seluruh halaman web saat terjadi perubahan data, melainkan hanya memperbarui bagian yang mengalami modifikasi saja.
 
- Hemat Waktu Pengodean: Konsep arsitektur komponen (reusable components) memungkinkan Anda membuat elemen UI (seperti menu navigasi, kartu, tombol) sekali, lalu menggunakannya berulang kali di halaman lain.
+- Hemat Waktu Pengodean: Konsep arsitektur komponen (reusable components) memungkinkan Anda membuat elemen UI (seperti menu navigasi, kartu, tombol) sekali, lalu menggunakannya berulang kali di halaman lain.
 
- Kode Lebih Rapi dengan JSX: Penggunaan sintaks JavaScript XML (JSX) menyatukan logika pemrograman JavaScript dan struktur desain HTML ke dalam satu file, membuat struktur kode lebih mudah dibaca.
+- Kode Lebih Rapi dengan JSX: Penggunaan sintaks JavaScript XML (JSX) menyatukan logika pemrograman JavaScript dan struktur desain HTML ke dalam satu file, membuat struktur kode lebih mudah dibaca.
 
- Ekosistem dan Pustaka yang Kaya: Didukung oleh Meta dan komunitas global yang masif, React memiliki jutaan paket tambahan gratis (library pihak ketiga) untuk mempermudah pembuatan fitur kompleks seperti animasi, diagram, dan manajemen data.
+- Ekosistem dan Pustaka yang Kaya: Didukung oleh Meta dan komunitas global yang masif, React memiliki jutaan paket tambahan gratis (library pihak ketiga) untuk mempermudah pembuatan fitur kompleks seperti animasi, diagram, dan manajemen data.
 
-  Skalabilitas yang Baik: Sangat anduh untuk membangun website skala kecil hingga aplikasi web raksasa (seperti Netflix atau Airbnb) berkat arsitekturnya yang terstruktur
+- Skalabilitas yang Baik: Sangat anduh untuk membangun website skala kecil hingga aplikasi web raksasa (seperti Netflix atau Airbnb) berkat arsitekturnya yang terstruktur
 
 
 •	KEKURANGAN REACT JS
 
-Bukan Framework Utuh: Berbeda dengan Angular atau Vue, React hanyalah sebuah pustaka (library) yang berfokus pada visual/UI saja. Anda wajib menginstal pustaka luar tambahan untuk mengurus routing (pindah halaman) atau manajemen data global.
+- Bukan Framework Utuh: Berbeda dengan Angular atau Vue, React hanyalah sebuah pustaka (library) yang berfokus pada visual/UI saja. Anda wajib menginstal pustaka luar tambahan untuk mengurus routing (pindah halaman) atau manajemen data global.
 
-Pembaruan Terlalu Cepat: Ekosistem React berkembang dengan kecepatan tinggi. Sering kali tutorial atau dokumentasi lama menjadi usang (deprecated) dalam hitungan bulan, memaksa pengembang untuk terus-menerus belajar hal baru.
+- Pembaruan Terlalu Cepat: Ekosistem React berkembang dengan kecepatan tinggi. Sering kali tutorial atau dokumentasi lama menjadi usang (deprecated) dalam hitungan bulan, memaksa pengembang untuk terus-menerus belajar hal baru.
 
-Kurva Belajar yang Sedikit Curam: Bagi pemula yang baru menguasai JavaScript dasar, konsep JSX, siklus hidup komponen (component lifecycle), serta pengelolaan state dan hooks memerlukan waktu adaptasi ekstra untuk dipahami.
+- Kurva Belajar yang Sedikit Curam: Bagi pemula yang baru menguasai JavaScript dasar, konsep JSX, siklus hidup komponen (component lifecycle), serta pengelolaan state dan hooks memerlukan waktu adaptasi ekstra untuk dipahami.
 
- Dokumentasi Pihak Ketiga Kurang Konsisten: Karena React sangat bergantung pada pustaka eksternal buatan komunitas untuk melengkapi fiturnya, dokumentasi alat-alat pendukung tersebut terkadang kurang mendalam, membingungkan, atau tidak terperinci.
+- Dokumentasi Pihak Ketiga Kurang Konsisten: Karena React sangat bergantung pada pustaka eksternal buatan komunitas untuk melengkapi fiturnya, dokumentasi alat-alat pendukung tersebut terkadang kurang mendalam, membingungkan, atau tidak terperinci.
 
 
 3.	CARA KERJA REACT.JS 
@@ -90,7 +90,9 @@ React juga menyediakan siklus hidup komponen, yaitu metode-metode khusus yang di
 
 
 4.	INSTALASI REACT.JS
+   
 1.	Langkah-Langkah Instalasi React JS Di Windows
+   
 •	Langkah Pertama
 harus unduh Node.js karena React JS menggunakan node package manager untuk mengelola dependensinya. Sobat bisa kunjungi website resminya Node.js dan unduh LTS version untuk Windows. LTS Version lebih stabil untuk sebagian besar user.
 •	Jalankan Installer
@@ -132,6 +134,7 @@ Jika berhasil browser di tab baru akan muncul dan menampilkan halaman React deng
 <img width="609" height="275" alt="image" src="https://github.com/user-attachments/assets/49df8d3f-a550-4803-a8f3-339771300a4e" />
 Ini merupakan tanda bahwa kita sudah berhasil install React JS atau aplikasi React dan siap building website atau app. 
 Itulah langkah-langkah lengkap bagaimana caranya install React JS di Windows. Dengan ini kita sudah siap untuk memulai proses development website dan aplikasi yang dinamis serta performa tinggi.
+
 2.	Langkah-Langkah Instalasi React JS Visual Studio Code
 •	Langkah Pertama Install Node.JS
 Pastikan Anda sudah menginstal Node.js karena React membutuhkannya untuk menjalankan server dan mengelola library.
@@ -352,24 +355,19 @@ Rekap 4 Contoh Dasar yang Sudah Kamu Pelajari:
 4.	Aplikasi Cuaca: Belajar sinkronisasi data dengan server luar lewat efek samping (useEffect & API Simulation).
 
 
-
-
-
-
-
-
-
-
-
-
 8.	KELEBIHAN REACT DIBANDING FRAMEWORK/LIBRARIES LAIN
 
-5 alasan utama mengapa Anda harus memilih ReactJS daripada framework lain,
+5 alasan utama mengapa Anda harus memilih ReactJS daripada framework lain:
+
 1.	Mudah dipelajari, mudah digunakan Mampu melakukan hal-hal luar biasa itu hebat, tetapi hanya jika Anda tidak perlu menghabiskan sisa hidup menguasai satu teknologi baru. React JS mudah dipelajari, mudah digunakan serta dilengkapi dengan sumber dokumentasi, tutorial, dan sumber daya pelatihan yang baik. Siapa pun dengan kemampuan dasar JavaScript dapat memahami dan mulai menggunakan React Js hanya dalam beberapa hari.
+   
 2.	Reusable Componets Components adalah fitur luar biasa, dan React JS didasarkan pada hal tersebut. Anda mulai dengan hal-hal kecil, yang kemudigunakan untuk membuat hal-hal yang lebih besar, selanjutnya Anda gunakan untuk membuat aplikasi. Setiap komponen memiliki logikanya sendiri dan mengontrol renderingnya sendiri, dan dapat digunakan kembali di mana pun Anda membutuhkannya. Penggunaan ulang kode membuat aplikasi Anda lebih mudah dikembangkan dan dikelola. React Js juga membantu Anda menerapkan tampilan dan nuansa yang konsisten di semua project.
+   
 3.	Virtual DOM Salah satu bagian yang sangat keren dari React adalah DOM virtual. Biasanya, ketika Anda mengembangkan aplikasi yang memiliki banyak interaksi pengguna dan pembaruan data, Anda harus hati-hati saat struktur aplikasi memengaruhi kinerja. Bahkan dengan platform klien yang cepat dan mesin JavaScript, manipulasi DOM yang luas dapat menjadi penghambat kinerja dan bahkan menghasilkan user interface yang menjengkelkan. Lebih buruk lagi, karena DOM adalah tree data structure, perubahan sederhana di tingkat atas dapat menyebabkan perubahan besar ke user interface.
 React memecahkan masalah ini dengan menggunakan DOM virtual. Ini, seperti namanya, representasi virtual DOM. Setiap perubahan tampilan baru pertama kali dilakukan pada DOM virtual, yang hidup dalam memori dan bukan di layar Anda. Algoritma yang efisien kemudian menentukan perubahan yang dibuat pada DOM virtual untuk mengidentifikasi perubahan yang perlu dilakukan ke DOM asli. Ini kemudian menentukan cara yang paling efektif untuk membuat perubahan dan hanya berlaku ke DOM asli. Ini menjamin waktu pembaruan minimum ke DOM asli, menyediakan kinerja yang lebih tinggi dan pengalaman pengguna yang lebih bersih.
+
 4.	Developer Tools yang Keren Teknologi baru bisa sangat menyenangkan, tetapi hanya jika Anda dapat menggunakannya dalam lingkungan development. Artinya, memiliki alat untuk membantu Anda merancang dan men-debug teknologi baru, dan React JS mencakup hal desain dan alat debugging. React develper tools, tersedia untuk Chrome dan Firefox, adalah ekstensi browser untuk React. Ini memungkinkan Anda untuk memeriksa hierarki komponen React di DOM virtual. Anda dapat memilih komponen individual dan memeriksa serta mengedit properti dan statusnya saat ini. Anda juga dapat melacak hierarki komponen dan menemukan parent/child components. Anda dapat menemukannya di Github, di Chrome Store, atau Firefox add-ons page.
+   
 5.	React Native untuk Mobile App Development React JS dapat disebut sebagai "belajar sekali - tulis di mana saja" library, karena baik dalam pengembangan aplikasi web dan mobile, React mengikuti pola desain yang sama, memfasilitasi proses transisi. Menggunakan JavaScript polos dan React, Anda dapat membuat UI yang kaya untuk aplikasi asli, serta didukung oleh platform iOS dan Android.
 
 9.	KESIMPULAN 
