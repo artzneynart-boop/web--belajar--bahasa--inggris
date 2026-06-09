@@ -227,14 +227,12 @@ footer {
 .footer-bottom p { font-size: .78rem; color: rgba(255,255,255,.4); }
 
 /* ── HERO (index.html) ── */
+
 .hero {
-  padding: 130px 5% 80px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--white) 60%, var(--blue-50) 100%);
-  position: relative; overflow: hidden;
+    border: 15px solid red !important;
+    background: red !important;
 }
+
 .hero::before {
   content: '';
   position: absolute; top: -80px; right: -80px;
