@@ -229,8 +229,18 @@ footer {
 /* ── HERO (index.html) ── */
 
 .hero {
-    border: 15px solid red !important;
-    background: red !important;
+    min-height: 100vh;
+
+    background:
+      linear-gradient(
+        rgba(37,99,235,0.75),
+        rgba(29,78,216,0.65)
+      ),
+      url('../asset/home-bg.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero::before {
