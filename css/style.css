@@ -229,20 +229,13 @@ footer {
 /* ── HERO (index.html) ── */
 
 .hero {
-    min-height: 100vh;
-
-    background:
-      linear-gradient(
-        rgba(37,99,235,0.75),
-        rgba(29,78,216,0.65)
-      ),
-      url('../asset/home-bg.png');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  padding: 130px 5% 80px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--white) 60%, var(--blue-50) 100%);
+  position: relative; overflow: hidden;
 }
-
 .hero::before {
   content: '';
   position: absolute; top: -80px; right: -80px;
