@@ -150,11 +150,11 @@ function inisial($nama_depan, $nama_belakang) {
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* ── Layout ── */
-        .ep-wrapper {
-            max-width: 680px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+      .ep-wrapper {
+    max-width: 680px;
+    margin: 85px auto 2rem auto;
+    padding: 0 1rem;
+}
 
         .ep-page-header {
             margin-bottom: 1.5rem;

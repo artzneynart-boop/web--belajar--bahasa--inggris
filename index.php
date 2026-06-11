@@ -2,6 +2,7 @@
 session_start();
 $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
 $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -20,26 +21,56 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <div class="nav-logo-icon">Ms</div>
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.php" class="active">🏠 Home</a></li>
+ <ul class="nav-links">
+  <li><a href="index.php" class="active">🏠 Home</a></li>
+
+  <?php if($isLoggedIn): ?>
     <li><a href="materi.php">📚 Materi</a></li>
     <li><a href="kamus.php">📖 Kamus</a></li>
     <li><a href="kuis.php">🧠 Kuis</a></li>
-  </ul>
+  <?php endif; ?>
+</ul>
   <div class="nav-auth">
 
-    <?php if ($isLoggedIn): ?>
-      <span class="btn-login" style="cursor:default">👋 <?= $username ?></span>
-      <a class="btn-register" href="logout.php">Logout</a>
-    <?php else: ?>
-      <a class="btn-login"    onclick="openModal('login')">Login</a>
-      <a class="btn-register" onclick="openModal('register')">Register</a>
-    <?php endif; ?>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+<div class="nav-auth">
+
+<?php if ($isLoggedIn): ?>
+  <span class="btn-login" style="cursor:default">
+    👋 <?= $username ?>
+  </span>
+
+  <a class="btn-login" href="edit_profil.php">
+    Profil Saya
+  </a>
+
+  <a class="btn-register" href="logout.php">
+    Logout
+  </a>
+
+<?php else: ?>
+
+  <a class="btn-login" onclick="openModal('login')">
+    Login
+  </a>
+
+  <a class="btn-register" onclick="openModal('register')">
+    Register
+  </a>
+
+<?php endif; ?>
+
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 </nav>
+
+
+
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="home">
   <div class="hero-content">
