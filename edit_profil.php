@@ -12,6 +12,12 @@ $user_id = $_SESSION['user_id'];
 $pesan_sukses = '';
 $pesan_error  = '';
 
+// Tangkap pesan error dari proses hapus akun (jika ada)
+if (isset($_SESSION['hapus_akun_error'])) {
+    $pesan_error = $_SESSION['hapus_akun_error'];
+    unset($_SESSION['hapus_akun_error']);
+}
+
 // Ambil data user saat ini
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
@@ -147,7 +153,6 @@ function inisial($nama_depan, $nama_belakang) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* ── Layout ── */
@@ -350,6 +355,104 @@ function inisial($nama_depan, $nama_belakang) {
             transition: background .15s;
         }
         .ep-btn-save:hover { background: #4c1d95; }
+
+        /* ── Zona Bahaya ── */
+        .ep-card-danger {
+             border-color: #e5e7eb;
+              margin-top: 1.5rem;
+    }
+     
+        .ep-card-title-danger {
+            color: #dc2626;
+        }
+        .ep-danger-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .ep-danger-text strong {
+            display: block;
+            font-size: .9rem;
+            margin-bottom: .2rem;
+            color: #1f2937;
+        }
+        .ep-danger-text p {
+            font-size: .82rem;
+            color: #9ca3af;
+            margin: 0;
+        }
+        .ep-btn-delete {
+            padding: 9px 20px;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            background: #fef2f2;
+            color: #dc2626;
+            font-size: .9rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background .15s;
+        }
+        .ep-btn-delete:hover { background: #fee2e2; }
+
+        /* ── Modal Konfirmasi Hapus ── */
+        .ep-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 1rem;
+        }
+        .ep-modal-overlay.open { display: flex; }
+        .ep-modal-box {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.75rem;
+            max-width: 400px;
+            width: 100%;
+        }
+        .ep-modal-box h3 {
+            margin: 0 0 .5rem;
+            font-size: 1.05rem;
+            color: #dc2626;
+        }
+        .ep-modal-box p {
+            font-size: .85rem;
+            color: #6b7280;
+            margin: 0 0 1rem;
+            line-height: 1.5;
+        }
+        .ep-modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: .6rem;
+            margin-top: 1.25rem;
+        }
+        .ep-btn-cancel-modal {
+            padding: 9px 18px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: transparent;
+            font-size: .88rem;
+            cursor: pointer;
+            color: #374151;
+        }
+        .ep-btn-confirm-delete {
+            padding: 9px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #dc2626;
+            color: #fff;
+            font-size: .88rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .ep-btn-confirm-delete:hover { background: #b91c1c; }
     </style>
 </head>
 <body>
@@ -479,6 +582,36 @@ function inisial($nama_depan, $nama_belakang) {
         </div>
 
     </form>
+
+    <!-- ──  Hapus Akun ── -->
+    <div class="ep-card ep-card-danger">
+        <div class="ep-card-title ep-card-title-danger"></div>
+        <div class="ep-danger-row">
+            <div class="ep-danger-text">
+                <strong>Hapus Akun</strong>
+                <p>Akun dan semua data kamu akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.</p>
+            </div>
+            <button type="button" class="ep-btn-delete" onclick="openDeleteModal()">🗑️ Hapus Akun</button>
+        </div>
+    </div>
+</div>
+
+<!-- ── Modal Konfirmasi Hapus Akun ── -->
+<div class="ep-modal-overlay" id="deleteModal">
+    <div class="ep-modal-box">
+        <h3>⚠️ Hapus Akun Permanen</h3>
+        <p>Tindakan ini tidak dapat dibatalkan. Semua data akunmu (profil, foto, dan riwayat) akan dihapus selamanya. Masukkan password kamu untuk konfirmasi.</p>
+        <form method="POST" action="hapus_akun.php">
+            <div class="ep-form-group">
+                <label for="password_konfirmasi">Password</label>
+                <input type="password" id="password_konfirmasi" name="password_konfirmasi" placeholder="Masukkan password kamu" required>
+            </div>
+            <div class="ep-modal-actions">
+                <button type="button" class="ep-btn-cancel-modal" onclick="closeDeleteModal()">Batal</button>
+                <button type="submit" class="ep-btn-confirm-delete">Ya, Hapus Akun Saya</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script>
@@ -513,6 +646,22 @@ document.querySelectorAll('.toggle-pw').forEach(btn => {
         input.type = input.type === 'password' ? 'text' : 'password';
         this.textContent = input.type === 'password' ? '👁' : '🙈';
     });
+});
+
+// ── Modal Hapus Akun ──
+function openDeleteModal() {
+    document.getElementById('deleteModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeDeleteModal() {
+    document.getElementById('deleteModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.getElementById('deleteModal').addEventListener('click', function (e) {
+    if (e.target === this) closeDeleteModal();
+});
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDeleteModal();
 });
 </script>
 
