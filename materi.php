@@ -1,8 +1,13 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
-$username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
 
+$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+$username = $_SESSION['username'] ?? '';
+
+if (!$isLoggedIn) {
+    header("Location: index.php?login_required=1");
+    exit();
+}
 // Halaman topik yang diminta
 $topic = $_GET['topik'] ?? '';
 

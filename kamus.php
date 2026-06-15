@@ -1,9 +1,15 @@
 <?php
 session_start();
-include 'koneksi.php';
+require_once 'koneksi.php';
 
 $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
-$username = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
+
+if (!$isLoggedIn) {
+    header("Location: index.php?login_required=1");
+    exit();
+}
+
+$username = $_SESSION['username'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="id">
