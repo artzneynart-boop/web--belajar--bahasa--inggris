@@ -39,9 +39,12 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     👋 <?= $username ?>
   </span>
 
-  <a class="btn-login" href="edit_profil.php">
-    Profil Saya
-  </a>
+<a href="edit_profil.php">
+    <img
+        src="<?= htmlspecialchars($_SESSION['foto']) ?>"
+        style="width:40px;height:40px;border-radius:50%;object-fit:cover;"
+    >
+</a>
 
   <a class="btn-register" href="logout.php">
     Logout
