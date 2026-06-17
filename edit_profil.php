@@ -663,7 +663,26 @@ document.getElementById('deleteModal').addEventListener('click', function (e) {
     if (e.target === this) closeDeleteModal();
 });
 document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeDeleteModal();
+    if (e.key === 'Escape') {
+        closeDeleteModal();
+        closeProfileDropdown();
+    }
+});
+
+// ── Profile Dropdown ──
+function toggleProfileDropdown(e) {
+    e.stopPropagation();
+    document.getElementById('profileDropdown').classList.toggle('open');
+}
+function closeProfileDropdown() {
+    document.getElementById('profileDropdown').classList.remove('open');
+}
+// Tutup dropdown saat klik di luar
+document.addEventListener('click', function (e) {
+    const wrap = document.getElementById('profileDropdown');
+    if (wrap && !wrap.contains(e.target)) {
+        closeProfileDropdown();
+    }
 });
 </script>
 

@@ -16,7 +16,7 @@ if (empty($username) || empty($password)) {
 }
 
 // Prepared statement — aman dari SQL injection
-$stmt = mysqli_prepare($conn, "SELECT id, username, password, foto FROM users WHERE username = ?");
+$stmt = mysqli_prepare($conn, "SELECT id, username, password, foto, email, nama_depan, nama_belakang FROM users WHERE username = ?");
 mysqli_stmt_bind_param($stmt, "s", $username);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -25,10 +25,13 @@ mysqli_stmt_close($stmt);
 
 if ($data && password_verify($password, $data['password'])) {
     // Login sukses — simpan session
-    $_SESSION['user_id']  = $data['id'];
-    $_SESSION['username'] = $data['username'];
-    $_SESSION['foto'] = $data['foto'];
-    $_SESSION['loggedin'] = true;
+    $_SESSION['user_id']    = $data['id'];
+    $_SESSION['username']   = $data['username'];
+    $_SESSION['foto']       = $data['foto'];
+    $_SESSION['email']      = $data['email'];
+    $_SESSION['nama_depan']    = $data['nama_depan'] ?? '';
+    $_SESSION['nama_belakang'] = $data['nama_belakang'] ?? '';
+    $_SESSION['loggedin']   = true;
 
 header("Location: kuis.php");
 exit;

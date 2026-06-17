@@ -15,62 +15,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
 </head>
 <body>
 
-<!-- ═══════ NAVBAR ═══════ -->
-<nav id="navbar">
-  <a class="nav-logo" href="index.php">
-    <div class="nav-logo-icon">Ms</div>
-    <span class="nav-logo-text">My<span>Speakora</span></span>
-  </a>
- <ul class="nav-links">
-  <li><a href="index.php" class="active">🏠 Home</a></li>
-
-  <?php if($isLoggedIn): ?>
-    <li><a href="materi.php">📚 Materi</a></li>
-    <li><a href="kamus.php">📖 Kamus</a></li>
-    <li><a href="kuis.php">🧠 Kuis</a></li>
-  <?php endif; ?>
-</ul>
-  <div class="nav-auth">
-
-<div class="nav-auth">
-
-<?php if ($isLoggedIn): ?>
-  <span class="btn-login" style="cursor:default">
-    👋 <?= $username ?>
-  </span>
-
-<a href="edit_profil.php">
-    <img
-        src="<?= htmlspecialchars($_SESSION['foto']) ?>"
-        style="width:40px;height:40px;border-radius:50%;object-fit:cover;"
-    >
-</a>
-
-  <a class="btn-register" href="logout.php">
-    Logout
-  </a>
-
-<?php else: ?>
-
-  <a class="btn-login" onclick="openModal('login')">
-    Login
-  </a>
-
-  <a class="btn-register" onclick="openModal('register')">
-    Register
-  </a>
-
-<?php endif; ?>
-
-</div>
-
-<div class="hamburger" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-</nav>
+<?php include 'navbar.php'; ?>
 
 
 
