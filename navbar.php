@@ -222,6 +222,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
           <a class="pd-link <?= $currentPage==='kuis.php'?'pd-active':'' ?>" href="kuis.php" role="menuitem">
             <span class="pd-icon">🧠</span> Kuis
           </a>
+          <a class="pd-link <?= $currentPage==='pengaturan.php'?'pd-active':'' ?>" href="pengaturan.php" role="menuitem">
+            <span class="pd-icon">⚙️</span> Pengaturan
+          </a>
 
           <div class="pd-divider"></div>
 
