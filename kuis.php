@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once 'koneksi.php';
@@ -21,6 +22,50 @@ $username = $_SESSION['username'] ?? '';
   <link rel="stylesheet" href="./css/style.css"/>
   <style>
     #kuis { padding-top: 110px; min-height: 100vh; }
+
+    /* ── COMPACT QUIZ OPTIONS ── */
+    .ki-opts { display: flex; flex-direction: column; gap: 6px; }
+    .ki-opt {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 0.5px solid #e5e7eb;
+      background: #fff;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      color: #1f2937;
+      text-align: left;
+      width: 100%;
+    }
+    .ki-opt:hover:not(.ki-disabled) { background: #f9fafb; }
+    .ki-opt.ki-correct { border-color: #1D9E75 !important; background: #E1F5EE !important; }
+    .ki-opt.ki-wrong   { border-color: #dc2626 !important; background: #fef2f2 !important; }
+    .ki-opt.ki-disabled { cursor: default; }
+    .ki-opt-letter {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      flex-shrink: 0;
+    }
+    .ki-opt.ki-correct .ki-opt-letter { background: #1D9E75; color: #fff; }
+    .ki-opt.ki-wrong   .ki-opt-letter { background: #dc2626; color: #fff; }
+    .ki-opt-text { font-size: 14px; }
+
+    /* ── COMPACT QUESTION CARD ── */
+    .ki-card { padding: 14px 16px; margin-bottom: 12px; }
+    .ki-qnum { font-size: 11px; color: #9ca3af; margin-bottom: 6px; }
+    .ki-qtext { font-size: 15px; font-weight: 500; line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -111,20 +156,20 @@ $username = $_SESSION['username'] ?? '';
 </section>
 
 <!-- ═══════ KUIS INTERAKTIF (TAMBAHAN) ═══════ -->
-<section id="kuis-interaktif">
-  <div class="section-tag">🎯 Mulai Berlatih</div>
-  <h2 class="section-title">Kuis Lengkap — 10 Soal</h2>
-  <p class="section-sub">Jawab 10 soal bertingkat dari Pemula hingga Mahir. Ada timer, feedback, dan skor akhir!</p>
+<section id="kuis-interaktif" style="padding-top:32px; padding-bottom:40px;">
+  <div class="section-tag" style="font-size:.75rem; padding:4px 12px; margin-bottom:10px;">🎯 Mulai Berlatih</div>
+  <h2 class="section-title" style="font-size:1.4rem; margin-bottom:6px;">Kuis Lengkap — 10 Soal</h2>
+  <p class="section-sub" style="font-size:.85rem; margin-bottom:20px;">Jawab 10 soal bertingkat dari Pemula hingga Mahir. Ada timer, feedback, dan skor akhir!</p>
 
   <div class="ki-wrapper">
     <!-- QUIZ SECTION -->
     <div id="ki-quiz">
       <div class="ki-topbar">
-        <div class="ki-progress-bg"><div class="ki-progress-fill" id="ki-progress-fill"></div></div>
-        <div class="ki-meta">
-          <span id="ki-counter">Soal 1 dari 10</span>
-          <span class="ki-badge" id="ki-level">Pemula</span>
-          <span class="ki-timer" id="ki-timer">⏱ 30</span>
+        <div class="ki-progress-bg" style="height:6px; border-radius:3px; margin-bottom:10px;"><div class="ki-progress-fill" id="ki-progress-fill"></div></div>
+        <div class="ki-meta" style="font-size:.8rem;">
+          <span id="ki-counter" style="font-size:.8rem;">Soal 1 dari 10</span>
+          <span class="ki-badge" id="ki-level" style="font-size:.75rem; padding:3px 10px;">Pemula</span>
+          <span class="ki-timer" id="ki-timer" style="font-size:.8rem; padding:3px 10px;">⏱ 30</span>
         </div>
       </div>
 
@@ -347,6 +392,7 @@ $username = $_SESSION['username'] ?? '';
       btn.className = 'ki-opt';
       btn.innerHTML = '<span class="ki-opt-letter">' + letters[i] + '</span><span class="ki-opt-text">' + opt + '</span>';
       btn.onclick = function() { kiSelect(i); };
+      btn.style.cssText = '';
       grid.appendChild(btn);
     });
     var fb = document.getElementById('ki-feedback');
