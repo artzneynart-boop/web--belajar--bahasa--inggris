@@ -1,0 +1,323 @@
+/* ══════════════════════════════════════
+   KONTAK PAGE — MySpeakora
+   Stylesheet khusus untuk kontak.php
+   ══════════════════════════════════════ */
+
+/* ── Hero dengan gradient + pola dekoratif ── */
+.kontak-hero {
+  position: relative;
+  padding: 150px 1.25rem 90px;
+  text-align: center;
+  background: radial-gradient(circle at 20% 20%, rgba(37,99,235,.10), transparent 55%),
+              radial-gradient(circle at 85% 15%, rgba(124,58,237,.10), transparent 50%),
+              linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+  overflow: hidden;
+}
+.kontak-hero::before, .kontak-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: .5;
+  animation: kontakFloat 7s ease-in-out infinite;
+}
+.kontak-hero::before {
+  width: 70px; height: 70px;
+  background: #dbeafe;
+  top: 18%; left: 8%;
+}
+.kontak-hero::after {
+  width: 50px; height: 50px;
+  background: #ede9fe;
+  top: 65%; right: 10%;
+  animation-delay: -3s;
+}
+@keyframes kontakFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-18px) translateX(8px); }
+}
+.kontak-hero-inner { position: relative; max-width: 700px; margin: 0 auto; z-index: 1; }
+.kontak-hero .section-tag {
+  margin: 0 auto 1.1rem;
+  display: inline-flex;
+}
+.kontak-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 .9rem;
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+.kontak-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.kontak-hero p {
+  color: #6b7280;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+/* ── Quick-contact pills di bawah hero ── */
+.kontak-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem;
+  justify-content: center;
+  margin-top: 2.2rem;
+  position: relative;
+  z-index: 1;
+}
+.kontak-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .85rem 1.5rem;
+  border-radius: 50px;
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+}
+.kontak-quick-btn:hover { transform: translateY(-3px); }
+.kontak-quick-wa {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(37,211,102,.35);
+}
+.kontak-quick-wa:hover { box-shadow: 0 12px 28px rgba(37,211,102,.45); }
+.kontak-quick-email {
+  background: #fff;
+  color: #2563eb;
+  border: 1.5px solid #dbeafe;
+}
+.kontak-quick-email:hover { border-color: #2563eb; box-shadow: 0 8px 22px rgba(37,99,235,.18); }
+.kontak-quick-icon { font-size: 1.15rem; line-height: 1; }
+
+.kontak-wrapper {
+  max-width: 1080px;
+  margin: 0 auto 5rem;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 1.75rem;
+  align-items: start;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 860px) {
+  .kontak-wrapper { grid-template-columns: 1fr; margin-top: -1rem; }
+}
+
+/* ── Info cards kiri ── */
+.kontak-info-col { display: flex; flex-direction: column; gap: 1rem; }
+.kontak-info-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 1.4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+  text-decoration: none;
+}
+.kontak-info-card.is-link { cursor: pointer; }
+.kontak-info-card.is-link:hover {
+  box-shadow: 0 14px 34px rgba(37,99,235,.12);
+  transform: translateY(-3px);
+  border-color: #c7d2fe;
+}
+.kontak-info-icon {
+  width: 50px; height: 50px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  background: #eff6ff;
+  position: relative;
+}
+.kontak-info-card h4 {
+  margin: 0 0 .3rem;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.kontak-info-card p, .kontak-info-card .kontak-info-value {
+  margin: 0;
+  font-size: .87rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+.kontak-info-card .kontak-info-value {
+  color: #2563eb;
+  font-weight: 600;
+}
+.kontak-info-card.is-link:hover .kontak-info-value { text-decoration: underline; }
+.kontak-info-card .kontak-info-sub {
+  font-size: .78rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* Badge "Online" berkedip di icon WA */
+.kontak-online-dot {
+  position: absolute;
+  bottom: -2px; right: -2px;
+  width: 13px; height: 13px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+}
+.kontak-online-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: kontakPulse 1.8s ease-out infinite;
+}
+@keyframes kontakPulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,.55); }
+  100% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+}
+.kontak-tag-online {
+  font-size: .65rem;
+  font-weight: 700;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 1px 8px;
+  border-radius: 20px;
+  letter-spacing: .02em;
+}
+
+/* ── Form kanan ── */
+.kontak-form-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2.2rem;
+  box-shadow: 0 20px 50px rgba(17,24,39,.05);
+}
+.kontak-form-card h3 {
+  margin: 0 0 .35rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111827;
+}
+.kontak-form-card > p {
+  margin: 0 0 1.5rem;
+  font-size: .89rem;
+  color: #6b7280;
+}
+.kontak-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 480px) {
+  .kontak-row { grid-template-columns: 1fr; }
+}
+.kontak-form-card .form-group { margin-bottom: 1.1rem; }
+.kontak-form-card label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: .4rem;
+}
+.kontak-form-card input,
+.kontak-form-card textarea {
+  width: 100%;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: .72rem .9rem;
+  font-size: .92rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  box-sizing: border-box;
+  background: #fafafa;
+  color: #111827;
+}
+.kontak-form-card textarea { resize: vertical; min-height: 130px; }
+.kontak-form-card input:focus,
+.kontak-form-card textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+  background: #fff;
+}
+.kontak-btn-submit {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: .9rem 1rem;
+  background: linear-gradient(90deg, #2563eb, #4338ca);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 10px 24px rgba(37,99,235,.28);
+}
+.kontak-btn-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(37,99,235,.35); }
+.kontak-btn-submit:active { transform: scale(.98); }
+
+.kontak-alert {
+  border-radius: 12px;
+  padding: .8rem 1rem;
+  font-size: .85rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.kontak-alert-success { background: #dcfce7; color: #15803d; }
+.kontak-alert-error   { background: #fef2f2; color: #dc2626; }
+
+/* ── Map embed ── */
+.kontak-map {
+  max-width: 1080px;
+  margin: 0 auto 5rem;
+  padding: 0 1.25rem;
+}
+.kontak-map-box {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  height: 300px;
+  box-shadow: 0 16px 40px rgba(17,24,39,.06);
+}
+.kontak-map-box iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ── Floating WhatsApp button (pojok bawah, semua halaman) ── */
+.kontak-float-wa {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(37,211,102,.45);
+  z-index: 999;
+  transition: transform .2s ease;
+}
+.kontak-float-wa:hover { transform: scale(1.08); }
