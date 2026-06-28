@@ -434,14 +434,14 @@ $username = $_SESSION['username'] ?? '';
     kiLoad(0);
   };
 
+// Memastikan halaman siap sebelum kuis dimuat
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() { kiLoad(0); });
   } else {
     kiLoad(0);
   }
 })();
-
-<script src="https://unpkg.com/feather-icons"></script>
+</script> <script src="https://unpkg.com/feather-icons"></script>
 <script>
   feather.replace();
 </script>
