@@ -474,14 +474,15 @@ $topics = [
       <li><a href="materi.php">Materi</a></li>
       <li><a href="kuis.php">Kamus</a></li>
       <li><a href="kamus.php">Kuis</a></li>
-      <li><a href="kuis.html">Leaderboard</a></li>
+      <li><a href="kamus.php">Leaderboard</a></li>
     </ul></div>
     <div class="footer-col"><h4>Perusahaan</h4><ul>
-      <li><a href="#">Tentang Kami</a></li>
+      <li><a href="tentang.php">Tentang Kami</a></li>
       <li><a href="https://maps.app.goo.gl/qmswBf11dXq8Ws1L7" target="_blank">location</a></li>
     </ul></div>
     <div class="footer-col"><h4>Bantuan</h4><ul>
       <li><a href="kontak.php">Kontak</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 MySpeakora. Dibuat dengan ❤️ untuk pelajar Indonesia.</p>

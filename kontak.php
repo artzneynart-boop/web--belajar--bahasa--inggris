@@ -218,22 +218,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="footer-col"><h4>Fitur</h4><ul>
       <li><a href="materi.php">Materi</a></li>
-      <li><a href="kuis.php">Kuis</a></li>
-      <li><a href="kamus.php">Kamus</a></li>
+      <li><a href="kuis.php">Kamus</a></li>
+      <li><a href="kamus.php">Kuis</a></li>
       <li><a href="#">Leaderboard</a></li>
     </ul></div>
     <div class="footer-col"><h4>Perusahaan</h4><ul>
-      <li><a href="#">Tentang Kami</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Karir</a></li>
-      <li><a href="#">Press Kit</a></li>
+      <li><a href="tentang.php">Tentang Kami</a></li>
      <li><a href="https://maps.app.goo.gl/qmswBf11dXq8Ws1L7" target="_blank">location</a></li>
     </ul></div>
     <div class="footer-col"><h4>Bantuan</h4><ul>
-      <li><a href="#">FAQ</a></li>
       <li><a href="kontak.php">Kontak</a></li>
-      <li><a href="#">Kebijakan Privasi</a></li>
-      <li><a href="#">Syarat & Ketentuan</a></li>
     </ul></div>
   </div>
   <div class="footer-bottom">
