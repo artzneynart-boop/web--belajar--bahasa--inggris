@@ -120,6 +120,7 @@ while($row = mysqli_fetch_assoc($query)):
       <li><a href="#">Blog</a></li>
       <li><a href="#">Karir</a></li>
       <li><a href="#">Press Kit</a></li>
+    <li><a href="https://maps.app.goo.gl/qmswBf11dXq8Ws1L7" target="_blank">location</a></li>
     </ul></div>
     <div class="footer-col"><h4>Bantuan</h4><ul>
       <li><a href="#">FAQ</a></li>
