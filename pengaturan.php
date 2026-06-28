@@ -17,6 +17,7 @@ $currentPage = 'pengaturan.php';
     <title>MySpeakora — Pengaturan</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
         .pg-wrapper {
             max-width: 620px;
@@ -197,17 +198,21 @@ $currentPage = 'pengaturan.php';
 <div class="pg-wrapper">
 
     <div class="pg-header">
-        <h1>⚙️ Pengaturan</h1>
+       <h1><i data-feather="settings"></i> Pengaturan</h1>
         <p>Kelola preferensi dan keamanan akun kamu</p>
     </div>
 
     <!-- ── 🎨 Tema ── -->
     <div class="pg-section">
-        <div class="pg-section-title">🎨 Tema</div>
-
+       <div class="pg-section-title">
+    <i data-feather="droplet"></i>
+    Tema
+</div>
         <div class="pg-row">
             <div class="pg-row-left">
-                <div class="pg-row-icon">☀️</div>
+               <div class="pg-row-icon">
+    <i data-feather="sun"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">Light Mode</div>
                     <div class="pg-row-sub">Tampilan terang (aktif)</div>
@@ -221,7 +226,9 @@ $currentPage = 'pengaturan.php';
 
         <div class="pg-row">
             <div class="pg-row-left">
-                <div class="pg-row-icon">🌙</div>
+              <div class="pg-row-icon">
+    <i data-feather="moon"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">Dark Mode</div>
                     <div class="pg-row-sub">Tampilan gelap</div>
@@ -235,11 +242,16 @@ $currentPage = 'pengaturan.php';
 
     <!-- ── 🌐 Bahasa ── -->
     <div class="pg-section">
-        <div class="pg-section-title">🌐 Bahasa</div>
+    <div class="pg-section-title">
+    <i data-feather="globe"></i>
+    Bahasa
+</div>
 
         <div class="pg-row">
             <div class="pg-row-left">
-                <div class="pg-row-icon">🇮🇩</div>
+             <div class="pg-row-icon">
+    <i data-feather="flag"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">Indonesia</div>
                     <div class="pg-row-sub">Bahasa antarmuka saat ini</div>
@@ -253,7 +265,9 @@ $currentPage = 'pengaturan.php';
 
         <div class="pg-row">
             <div class="pg-row-left">
-                <div class="pg-row-icon">🇬🇧</div>
+              <div class="pg-row-icon">
+    <i data-feather="globe"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">English</div>
                     <div class="pg-row-sub">Switch to English interface</div>
@@ -267,11 +281,16 @@ $currentPage = 'pengaturan.php';
 
     <!-- ── 🔐 Keamanan ── -->
     <div class="pg-section">
-        <div class="pg-section-title">🔐 Keamanan</div>
+    <div class="pg-section-title">
+    <i data-feather="shield"></i>
+    Keamanan
+</div>
 
         <a class="pg-row pg-row-link" href="edit_profil.php">
             <div class="pg-row-left">
-                <div class="pg-row-icon">🔑</div>
+               <div class="pg-row-icon">
+    <i data-feather="key"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">Ubah Password</div>
                     <div class="pg-row-sub">Perbarui password akun kamu</div>
@@ -284,7 +303,9 @@ $currentPage = 'pengaturan.php';
 
         <div class="pg-row pg-row-danger" onclick="openDeleteModal()" style="cursor:pointer;">
             <div class="pg-row-left">
-                <div class="pg-row-icon">🗑️</div>
+              <div class="pg-row-icon">
+    <i data-feather="trash-2"></i>
+</div>
                 <div class="pg-row-text">
                     <div class="pg-row-label">Hapus Akun</div>
                     <div class="pg-row-sub" style="color:#fca5a5;">Tindakan ini tidak dapat dibatalkan</div>
@@ -298,8 +319,10 @@ $currentPage = 'pengaturan.php';
 
     <!-- ── ℹ️ Tentang ── -->
     <div class="pg-section">
-        <div class="pg-section-title">ℹ️ Tentang</div>
-
+     <div class="pg-section-title">
+    <i data-feather="info"></i>
+    Tentang
+</div>
         <div class="pg-row">
             <div class="pg-row-left">
                 <div class="pg-row-icon" style="background:#eff6ff;">
@@ -321,7 +344,10 @@ $currentPage = 'pengaturan.php';
 <!-- ── Modal Konfirmasi Hapus Akun ── -->
 <div class="ep-modal-overlay" id="deleteModal">
     <div class="ep-modal-box">
-        <h3>⚠️ Hapus Akun Permanen</h3>
+        <h3>
+    <i data-feather="alert-triangle"></i>
+    Hapus Akun Permanen
+</h3>
         <p>Tindakan ini tidak dapat dibatalkan. Semua data akunmu akan dihapus selamanya. Masukkan password kamu untuk konfirmasi.</p>
         <form method="POST" action="hapus_akun.php">
             <div class="ep-form-group">
@@ -338,6 +364,9 @@ $currentPage = 'pengaturan.php';
 </div>
 
 <script src="script.js"></script>
+<script>
+feather.replace();
+</script>
 <script>
 function openDeleteModal() {
     document.getElementById('deleteModal').classList.add('open');

@@ -193,13 +193,15 @@ section { padding: 80px 5%; }
 .modal p { font-size: .85rem; color: var(--gray-500); margin-bottom: 26px; }
 .form-group { margin-bottom: 18px; }
 .form-group label { font-size: .82rem; font-weight: 700; color: var(--gray-700); display: block; margin-bottom: 7px; }
-.form-group input {
+.form-group input:not([type="checkbox"]) {
   width: 100%; padding: 12px 14px;
   border: 2px solid var(--gray-200); border-radius: 10px;
   font-family: inherit; font-size: .9rem; color: var(--gray-900);
   outline: none; transition: border-color .2s;
 }
-.form-group input:focus { border-color: var(--blue-500); }
+.form-group input:not([type="checkbox"]):focus {
+    border-color: var(--blue-500);
+}
 .btn-form {
   width: 100%; padding: 13px;
   background: var(--blue-600); color: white;
@@ -953,3 +955,56 @@ footer {
     display:block;
 }
 
+
+.remember-me{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    margin:15px 0;
+    font-size:.9rem;
+    color:var(--gray-700);
+}
+
+.remember-me span{
+    font-size:.9rem;
+    color:var(--gray-700);
+}
+
+.remember-me input{
+    width:16px !important;
+    height:16px !important;
+    margin:0 !important;
+}
+
+.remember-me input{
+    width:16px !important;
+    height:16px !important;
+    margin:0 !important;
+    padding:0 !important;
+    flex-shrink:0;
+}
+
+.pg-header h1,
+.pg-section-title,
+.ep-modal-box h3{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.pg-row-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.pg-row-icon svg,
+.pg-section-title svg,
+.pg-header h1 svg,
+.ep-modal-box h3 svg{
+    width:18px;
+    height:18px;
+    stroke:#2563eb;
+    stroke-width:2.2;
+}

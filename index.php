@@ -1,5 +1,6 @@
 <?php
 session_start();
+$remember_username = $_COOKIE['remember_username'] ?? '';
 $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
 $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
 
@@ -12,6 +13,7 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
   <title>MySpeakora — Beranda</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css">
+   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
@@ -77,11 +79,21 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
     <form method="POST" action="login.php">
       <div class="form-group">
         <label>Username</label>
-        <input type="text" name="username" placeholder="Username kamu" required />
+       <input
+    type="text"
+    name="username"
+    placeholder="Username kamu"
+    value="<?= htmlspecialchars($remember_username) ?>"
+    required
+/>
       </div>
       <div class="form-group">
         <label>Password</label>
         <input type="password" name="password" placeholder="••••••••" required />
+    <label class="remember-me">
+    <input type="checkbox" name="remember">
+    <span>Remember Me</span>
+    </label>
       </div>
       <button type="submit" class="btn-form">Masuk →</button>
     </form>
@@ -170,5 +182,10 @@ $username   = $isLoggedIn ? htmlspecialchars($_SESSION['username']) : '';
 </footer>
 
 <script src="script.js"></script>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+feather.replace();
+</script>
 </body>
 </html>

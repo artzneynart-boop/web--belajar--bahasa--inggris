@@ -32,6 +32,21 @@ if ($data && password_verify($password, $data['password'])) {
     $_SESSION['nama_depan']    = $data['nama_depan'] ?? '';
     $_SESSION['nama_belakang'] = $data['nama_belakang'] ?? '';
     $_SESSION['loggedin']   = true;
+    if (isset($_POST['remember'])) {
+    setcookie(
+        "remember_username",
+        $username,
+        time() + (30 * 24 * 60 * 60), // 30 hari
+        "/"
+    );
+} else {
+    setcookie(
+        "remember_username",
+        "",
+        time() - 3600,
+        "/"
+    );
+}
 
 header("Location: kuis.php");
 exit;

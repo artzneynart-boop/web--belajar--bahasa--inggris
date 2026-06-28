@@ -19,6 +19,7 @@ $username = $_SESSION['username'] ?? '';
   <title>MySpeakora — Kuis</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css"/>
+  <script src="https://unpkg.com/feather-icons"></script>
   <style>
     #kuis { padding-top: 110px; min-height: 100vh; }
 
@@ -439,6 +440,10 @@ $username = $_SESSION['username'] ?? '';
     kiLoad(0);
   }
 })();
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  feather.replace();
 </script>
 
 </body>

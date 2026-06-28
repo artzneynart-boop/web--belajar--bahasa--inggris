@@ -169,15 +169,37 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <span class="nav-logo-text">My<span>Speakora</span></span>
   </a>
 
-  <ul class="nav-links">
-    <li><a href="index.php"  <?= $currentPage==='index.php'  ? 'class="active"':'' ?>>🏠 Home</a></li>
-    <?php if ($isLoggedIn): ?>
-    <li><a href="materi.php" <?= $currentPage==='materi.php' ? 'class="active"':'' ?>>📚 Materi</a></li>
-    <li><a href="kamus.php"  <?= $currentPage==='kamus.php'  ? 'class="active"':'' ?>>📖 Kamus</a></li>
-    <li><a href="kuis.php"   <?= $currentPage==='kuis.php'   ? 'class="active"':'' ?>>🧠 Kuis</a></li>
-    <?php endif; ?>
-  </ul>
+<ul class="nav-links">
+    <li>
+        <a href="index.php" <?= $currentPage==='index.php' ? 'class="active"' : '' ?>>
+            <i data-feather="home"></i>
+            Home
+        </a>
+    </li>
 
+    <?php if ($isLoggedIn): ?>
+    <li>
+        <a href="materi.php" <?= $currentPage==='materi.php' ? 'class="active"' : '' ?>>
+            <i data-feather="book-open"></i>
+            Materi
+        </a>
+    </li>
+
+    <li>
+        <a href="kamus.php" <?= $currentPage==='kamus.php' ? 'class="active"' : '' ?>>
+            <i data-feather="book"></i>
+            Kamus
+        </a>
+    </li>
+
+    <li>
+        <a href="kuis.php" <?= $currentPage==='kuis.php' ? 'class="active"' : '' ?>>
+            <i data-feather="award"></i>
+            Kuis
+        </a>
+    </li>
+    <?php endif; ?>
+</ul>
   <div class="nav-auth">
     <?php if ($isLoggedIn): ?>
 
@@ -209,32 +231,39 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </div>
           </div>
 
-          <!-- Navigasi -->
-          <a class="pd-link <?= $currentPage==='edit_profil.php'?'pd-active':'' ?>" href="edit_profil.php" role="menuitem">
-            <span class="pd-icon">✏️</span> Edit Profil
-          </a>
-          <a class="pd-link <?= $currentPage==='materi.php'?'pd-active':'' ?>" href="materi.php" role="menuitem">
-            <span class="pd-icon">📚</span> Materi
-          </a>
-          <a class="pd-link <?= $currentPage==='kamus.php'?'pd-active':'' ?>" href="kamus.php" role="menuitem">
-            <span class="pd-icon">📖</span> Kamus
-          </a>
-          <a class="pd-link <?= $currentPage==='kuis.php'?'pd-active':'' ?>" href="kuis.php" role="menuitem">
-            <span class="pd-icon">🧠</span> Kuis
-          </a>
-          <a class="pd-link <?= $currentPage==='pengaturan.php'?'pd-active':'' ?>" href="pengaturan.php" role="menuitem">
-            <span class="pd-icon">⚙️</span> Pengaturan
-          </a>
+         <!-- Navigasi -->
+<a class="pd-link <?= $currentPage==='edit_profil.php'?'pd-active':'' ?>" href="edit_profil.php" role="menuitem">
+    <i data-feather="edit-2" class="pd-icon"></i>
+    <span>Edit Profil</span>
+</a>
 
-          <div class="pd-divider"></div>
+<a class="pd-link <?= $currentPage==='materi.php'?'pd-active':'' ?>" href="materi.php" role="menuitem">
+    <i data-feather="book-open" class="pd-icon"></i>
+    <span>Materi</span>
+</a>
 
-          <!-- Logout -->
-          <a class="pd-link pd-danger" href="logout.php" role="menuitem">
-            <span class="pd-icon">🚪</span> Logout
-          </a>
-        </div>
-      </div><!-- /pdWrap -->
+<a class="pd-link <?= $currentPage==='kamus.php'?'pd-active':'' ?>" href="kamus.php" role="menuitem">
+    <i data-feather="book" class="pd-icon"></i>
+    <span>Kamus</span>
+</a>
 
+<a class="pd-link <?= $currentPage==='kuis.php'?'pd-active':'' ?>" href="kuis.php" role="menuitem">
+    <i data-feather="award" class="pd-icon"></i>
+    <span>Kuis</span>
+</a>
+
+<a class="pd-link <?= $currentPage==='pengaturan.php'?'pd-active':'' ?>" href="pengaturan.php" role="menuitem">
+    <i data-feather="settings" class="pd-icon"></i>
+    <span>Pengaturan</span>
+</a>
+
+<div class="pd-divider"></div>
+
+<!-- Logout -->
+<a class="pd-link pd-danger" href="logout.php" role="menuitem">
+    <i data-feather="log-out" class="pd-icon"></i>
+    <span>Logout</span>
+</a>
     <?php else: ?>
       <a class="btn-login"    onclick="openModal('login')">Login</a>
       <a class="btn-register" onclick="openModal('register')">Register</a>
